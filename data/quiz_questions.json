@@ -1,0 +1,146 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "Terra Satellite",
+      "question": "متى تم إطلاق القمر الصناعي Terra؟",
+      "choices": ["1999", "2000", "2001", "2002"],
+      "correctAnswer": 0,
+      "explanation": "تم إطلاق Terra في 18 ديسمبر 1999 كجزء من برنامج Earth Observing System (EOS) التابع لناسا.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "category": "Terra Instruments",
+      "question": "ما هو الجهاز المسؤول عن مراقبة التلوث الجوي على Terra؟",
+      "choices": ["MODIS", "ASTER", "MOPITT", "CERES"],
+      "correctAnswer": 2,
+      "explanation": "MOPITT (Measurements of Pollution in the Troposphere) يراقب أول أكسيد الكربون والميثان في الغلاف الجوي.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 3,
+      "category": "Terra Instruments",
+      "question": "كم عدد الأجهزة العلمية الرئيسية على متن Terra؟",
+      "choices": ["3 أجهزة", "5 أجهزة", "7 أجهزة", "9 أجهزة"],
+      "correctAnswer": 1,
+      "explanation": "يحمل Terra خمسة أجهزة علمية رئيسية: MODIS، ASTER، CERES، MISR، وMOPITT.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "category": "MODIS",
+      "question": "ما هي الدقة المكانية لجهاز MODIS في القناة المرئية؟",
+      "choices": ["15 متر", "30 متر", "250 متر", "1 كيلومتر"],
+      "correctAnswer": 2,
+      "explanation": "MODIS له دقة مكانية 250 متر في القنوات 1-2، و500 متر في القنوات 3-7، و1 كيلومتر في باقي القنوات.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 5,
+      "category": "MODIS",
+      "question": "أي من التالي يمكن لـ MODIS قياسه؟",
+      "choices": ["درجة حرارة سطح البحر فقط", "الغطاء النباتي فقط", "كل ما سبق وأكثر", "الغيوم فقط"],
+      "correctAnswer": 2,
+      "explanation": "MODIS يمكنه قياس العديد من المتغيرات: درجة حرارة السطح، الغطاء النباتي، الغيوم، الهباء الجوي، والحرائق.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "category": "Environmental Data",
+      "question": "ما هو مؤشر NDVI المستخدم في مراقبة الغطاء النباتي؟",
+      "choices": ["مؤشر التلوث", "مؤشر الفرق الطبيعي للغطاء النباتي", "مؤشر درجة الحرارة", "مؤشر الرطوبة"],
+      "correctAnswer": 1,
+      "explanation": "NDVI (Normalized Difference Vegetation Index) هو مؤشر يقيس كثافة وصحة الغطاء النباتي باستخدام الضوء المنعكس.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "category": "Environmental Data",
+      "question": "ما هي الفترة الزمنية التي يغطيها القمر الصناعي Terra في مراقبة الأرض؟",
+      "choices": ["من 2000 إلى 2010", "من 2000 إلى 2015", "من 2000 إلى 2020", "من 2000 حتى الآن"],
+      "correctAnswer": 3,
+      "explanation": "Terra لا يزال نشطاً ويعمل منذ إطلاقه في 1999، مما يوفر بيانات مستمرة لأكثر من 20 عاماً.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "category": "Climate Change",
+      "question": "أي من التالي يظهره بيانات Terra حول التغير المناخي؟",
+      "choices": ["انخفاض الغطاء النباتي العالمي", "ذوبان الجليد القطبي", "زيادة التلوث الجوي", "كل ما سبق"],
+      "correctAnswer": 3,
+      "explanation": "بيانات Terra تظهر جميع هذه التغيرات: انخفاض الغطاء النباتي، ذوبان الجليد، وزيادة التلوث الجوي.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "category": "ASTER",
+      "question": "ما هو الغرض الرئيسي من جهاز ASTER على Terra؟",
+      "choices": ["مراقبة الغلاف الجوي", "تصوير سطح الأرض عالي الدقة", "قياس الإشعاع", "مراقبة التلوث"],
+      "correctAnswer": 1,
+      "explanation": "ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer) مصمم لتصوير سطح الأرض بدقة عالية في 14 قناة طيفية.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "category": "CERES",
+      "question": "ما الذي يقيسه جهاز CERES؟",
+      "choices": ["درجة حرارة المحيطات", "توازن الطاقة الأرضي", "تركيز الغازات الدفيئة", "سرعة الرياح"],
+      "correctAnswer": 1,
+      "explanation": "CERES (Clouds and the Earth's Radiant Energy System) يقيس توازن الطاقة الأرضي وكمية الطاقة الشمسية المنعكسة والمشعة.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 11,
+      "category": "MISR",
+      "question": "ما الذي يميز جهاز MISR عن الأجهزة الأخرى؟",
+      "choices": ["دقة أعلى", "قياس متعدد الزوايا", "سرعة أكبر", "تكلفة أقل"],
+      "correctAnswer": 1,
+      "explanation": "MISR (Multi-angle Imaging SpectroRadiometer) يصور الأرض من 9 زوايا مختلفة لدراسة خصائص الهباء الجوي والغيوم.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 12,
+      "category": "Environmental Data",
+      "question": "ما هو معدل انخفاض الغطاء النباتي العالمي حسب بيانات Terra؟",
+      "choices": ["1% سنوياً", "2% سنوياً", "3% سنوياً", "4% سنوياً"],
+      "correctAnswer": 0,
+      "explanation": "بيانات Terra تظهر انخفاضاً متوسطاً في الغطاء النباتي العالمي بنسبة حوالي 1% سنوياً منذ 2000.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 13,
+      "category": "Climate Change",
+      "question": "أي منطقة تظهر أكبر انخفاض في الغطاء النباتي؟",
+      "choices": ["أوروبا", "أمريكا الشمالية", "الأمازون", "أستراليا"],
+      "correctAnswer": 2,
+      "explanation": "منطقة الأمازون تظهر أكبر انخفاض في الغطاء النباتي بسبب إزالة الغابات والأنشطة البشرية.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "category": "Environmental Data",
+      "question": "ما هو معدل ذوبان الجليد القطبي حسب بيانات Terra؟",
+      "choices": ["2% سنوياً", "4% سنوياً", "6% سنوياً", "8% سنوياً"],
+      "correctAnswer": 1,
+      "explanation": "بيانات Terra تظهر ذوبان الجليد القطبي بمعدل حوالي 4% سنوياً، مع تسارع في السنوات الأخيرة.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 15,
+      "category": "Terra Mission",
+      "question": "ما هو الهدف الرئيسي من مهمة Terra؟",
+      "choices": ["استكشاف الفضاء", "مراقبة الأرض وتغيراتها", "البحث عن حياة خارجية", "دراسة الشمس"],
+      "correctAnswer": 1,
+      "explanation": "الهدف الرئيسي من Terra هو مراقبة الأرض وتتبع التغيرات البيئية والمناخية لفهم كوكبنا بشكل أفضل.",
+      "difficulty": "easy"
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 15,
+    "categories": ["Terra Satellite", "Terra Instruments", "MODIS", "Environmental Data", "Climate Change", "ASTER", "CERES", "MISR", "Terra Mission"],
+    "difficultyLevels": ["easy", "medium", "hard"],
+    "version": "1.0",
+    "lastUpdated": "2024-01-01"
+  }
+}
