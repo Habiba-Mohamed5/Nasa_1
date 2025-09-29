@@ -23,46 +23,48 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    /* Prevent white flash on mobile */
+    background-color: #0f172a;
+}
+
+html {
+    background-color: #0f172a;
 }
 
 body {
     font-family: 'Cairo', sans-serif;
-    background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     min-height: 100vh;
+    /* Prevent white flash during page load */
+    background-color: #0f172a;
 }
 
-/* Page-specific backgrounds */
-body[data-page="home"] {
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-    background-attachment: fixed;
+/* Fix for mobile viewport issues */
+@supports (-webkit-touch-callout: none) {
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
-body[data-page="explorer"] {
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 30%, #16213e 60%, #0e3460 100%);
-    background-attachment: fixed;
-}
-
-body[data-page="quiz"] {
-    background: linear-gradient(45deg, #0f0f23 0%, #1a1a2e 40%, #16213e 80%, #0e3460 100%);
-    background-attachment: fixed;
-}
-
-body[data-page="about"] {
-    background: linear-gradient(225deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-    background-attachment: fixed;
-}
 
 /* Ensure content sections have proper height */
 .container {
-    min-height: auto;
     padding: 20px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Main content area */
+#app-content {
+    min-height: 100vh;
+    height: fit-content;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 /* Page transition animations */
@@ -110,11 +112,35 @@ body[data-page="about"] {
     position: relative;
     min-height: calc(100vh - 80px);
     overflow: hidden;
-    background-image: url('../public/Aster.png');
+    background-image: url('./public/Aster.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
+}
+
+/* Fix mobile background issues */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    /* Prevent white flash on mobile */
+    body {
+        background-color: #0f172a !important;
+    }
+    
+    html {
+        background-color: #0f172a !important;
+    }
+    
+    /* Improve mobile performance */
+    * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
 }
 
 /* Hero Section Components */

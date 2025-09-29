@@ -261,7 +261,7 @@ class Router {
         console.log('🚀 Router starting with page:', initialPage);
         
         // Validate the page exists, fallback to home if not
-        const validPages = ['home', 'explorer', 'quiz', 'about'];
+        const validPages = ['home', 'explorer', 'video', 'quiz', 'about'];
         const pageToLoad = validPages.includes(initialPage) ? initialPage : 'home';
         
         this.loadPage(pageToLoad, true);

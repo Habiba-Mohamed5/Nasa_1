@@ -52,12 +52,12 @@
         </div>
         
         <!-- Side Panel: Tips & Info -->
-        <aside class="panel">
-            <h3 style="margin: 0 0 16px 0;">💡 نصائح للاختبار</h3>
+        <aside class="quiz-side-panel">
+            <h3>💡 نصائح للاختبار</h3>
             
-            <div style="margin-bottom: 20px;">
-                <h4 style="margin: 0 0 8px 0; color: var(--accent2);">كيفية الإجابة</h4>
-                <ul style="color: var(--muted); font-size: 0.9rem; padding-right: 20px;">
+            <div class="quiz-tip-section">
+                <h4 class="accent2">كيفية الإجابة</h4>
+                <ul>
                     <li>اقرأ السؤال بعناية قبل الاختيار</li>
                     <li>اضغط على الإجابة التي تعتقد أنها صحيحة</li>
                     <li>ستظهر النتيجة والتفسير فورًا</li>
@@ -65,18 +65,18 @@
                 </ul>
             </div>
             
-            <div style="margin-bottom: 20px;">
-                <h4 style="margin: 0 0 8px 0; color: var(--accent1);">موضوعات الأسئلة</h4>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="quiz-tip-section">
+                <h4 class="accent1">موضوعات الأسئلة</h4>
+                <div class="quiz-tags">
                     <div class="tag">📊 قراءة البيانات</div>
                     <div class="tag">🌍 التغيرات البيئية</div>
                     <div class="tag">🔧 استخدام الأدوات</div>
                 </div>
             </div>
             
-            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 10px; border-left: 3px solid var(--accent3);">
-                <h4 style="margin: 0 0 8px 0; font-size: 0.9rem;">تذكر:</h4>
-                <p style="margin: 0; color: var(--muted); font-size: 0.85rem;">
+            <div class="quiz-reminder">
+                <h4>تذكر:</h4>
+                <p>
                     هذا الاختبار يعتمد على البيانات النموذجية المستخدمة في التجربة التفاعلية. 
                     الهدف هو فهم كيفية قراءة وتفسير البيانات البيئية.
                 </p>
@@ -85,15 +85,15 @@
     </div>
     
     <!-- Results Section (Initially Hidden) -->
-    <div id="resultsSection" class="panel" style="margin-top: 32px; display: none;">
-        <h3 style="margin: 0 0 20px 0; text-align: center;">🎉 نتائج الاختبار</h3>
+    <div id="resultsSection" class="quiz-results">
+        <h3>🎉 نتائج الاختبار</h3>
         
-        <div style="text-align: center; margin-bottom: 24px;">
-            <div id="scoreDisplay" style="font-size: 3rem; font-weight: bold; margin-bottom: 12px;">
+        <div class="quiz-score-display">
+            <div id="scoreDisplay" class="quiz-score-number">
                 <span id="correctAnswers">0</span>/<span id="totalQuestionsResult">15</span>
             </div>
-            <div id="scoreMessage" style="font-size: 1.2rem; margin-bottom: 8px;">ممتاز!</div>
-            <div id="scorePercentage" style="color: var(--muted);">نسبة النجاح: 100%</div>
+            <div id="scoreMessage" class="quiz-score-message">ممتاز!</div>
+            <div id="scorePercentage" class="quiz-score-percentage">نسبة النجاح: 100%</div>
         </div>
         
         <div class="grid grid-3">

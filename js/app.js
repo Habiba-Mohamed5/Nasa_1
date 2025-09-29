@@ -128,6 +128,9 @@ function registerRoutes() {
     // Data Explorer page
     router.addRoute('explorer', loadExplorerPage);
     
+    // Video page
+    router.addRoute('video', loadVideoPage);
+    
     // Quiz page
     router.addRoute('quiz', loadQuizPage);
     
@@ -162,6 +165,20 @@ async function loadExplorerPage() {
     
     setTimeout(() => {
         initializeExplorerPage();
+    }, 100);
+    
+    return html;
+}
+
+async function loadVideoPage() {
+    console.log('🎬 Loading video page...');
+    const response = await fetch('pages/video.html');
+    const html = await response.text();
+    console.log('✅ Video page HTML loaded, length:', html.length);
+    
+    setTimeout(() => {
+        console.log('🔄 Initializing video page...');
+        initializeVideoPage();
     }, 100);
     
     return html;
@@ -270,6 +287,17 @@ function initializeExplorerPage() {
     // Animate elements
     if (typeof gsap !== 'undefined') {
         gsap.from('.panel', { duration: 0.6, y: 30, opacity: 0, stagger: 0.1 });
+    }
+}
+
+function initializeVideoPage() {
+    console.log('✅ Video page loaded - initialization handled by page script');
+    
+    // Animate elements
+    if (typeof gsap !== 'undefined') {
+        gsap.from('.coming-soon-section', { duration: 0.8, y: 50, opacity: 0 });
+        gsap.from('.video-preview-section', { duration: 0.6, y: 30, opacity: 0, delay: 0.2 });
+        gsap.from('.educational-preview-section', { duration: 0.6, y: 30, opacity: 0, delay: 0.4 });
     }
 }
 
