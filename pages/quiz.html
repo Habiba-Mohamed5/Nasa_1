@@ -1,10 +1,10 @@
 <div class="container">
     <!-- Header Section -->
     <section class="quiz-header">
-        <h2>🧠 اختبار المعرفة البيئية</h2>
+        <h2>🧠 Environmental Knowledge Quiz</h2>
         <p>
-            اختبر معرفتك حول التغيرات البيئية التي استكشفتها في القسم التفاعلي. 
-            هذا الاختبار يحتوي على أسئلة حول البيانات والمؤشرات البيئية.
+            Test your knowledge about environmental changes you explored in the interactive section. 
+            This quiz contains questions about environmental data and indicators.
         </p>
     </section>
 
@@ -12,16 +12,16 @@
         <!-- Main Quiz Section -->
         <div class="quiz-container" style="display: flex; flex-direction: column; height: 100%; min-height: 600px;">
             <div class="quiz-header-section">
-                <h3>اختبار سريع</h3>
+                <h3>Quick Quiz</h3>
                 <div class="quiz-counter">
-                    سؤال <span id="currentQuestionNum">1</span> من <span id="totalQuestions">15</span>
+                    Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">15</span>
                 </div>
             </div>
             
             <div id="qBox" class="quiz-question-box">
                 <div class="quiz-question-content">
                     <h3 id="qTitle" class="quiz-question-title">
-                        جاري تحميل السؤال...
+                        Loading question...
                     </h3>
                     
                     <div class="choices" id="choices">
@@ -33,17 +33,15 @@
                     </div>
                 </div>
                 
-                <!-- Navigation buttons and progress bar - always at bottom -->
+                <!-- Navigation buttons and progress bar -->
                 <div class="quiz-navigation">
-                    <!-- Navigation buttons -->
                     <div class="quiz-navigation-buttons">
-                        <button id="prevQ" class="btn btn-secondary" style="display: none;">السؤال السابق</button>
-                        <button id="nextQ" class="btn btn-secondary">السؤال التالي</button>
-                        <button id="resetQ" class="btn btn-secondary">إعادة البدء</button>
-                        <button id="showResults" class="btn btn-primary" style="display: none;">عرض النتائج</button>
+                        <button id="prevQ" class="btn btn-secondary" style="display: none;">Previous Question</button>
+                        <button id="nextQ" class="btn btn-secondary">Next Question</button>
+                        <button id="resetQ" class="btn btn-secondary">Restart</button>
+                        <button id="showResults" class="btn btn-primary" style="display: none;">Show Results</button>
                     </div>
                     
-                    <!-- Progress Bar -->
                     <div class="quiz-progress-container">
                         <div id="progressBar" class="quiz-progress-bar"></div>
                     </div>
@@ -53,32 +51,32 @@
         
         <!-- Side Panel: Tips & Info -->
         <aside class="quiz-side-panel">
-            <h3>💡 نصائح للاختبار</h3>
+            <h3>💡 Quiz Tips</h3>
             
             <div class="quiz-tip-section">
-                <h4 class="accent2">كيفية الإجابة</h4>
+                <h4 class="accent2">How to Answer</h4>
                 <ul>
-                    <li>اقرأ السؤال بعناية قبل الاختيار</li>
-                    <li>اضغط على الإجابة التي تعتقد أنها صحيحة</li>
-                    <li>ستظهر النتيجة والتفسير فورًا</li>
-                    <li>يمكنك المتابعة للسؤال التالي</li>
+                    <li>Read the question carefully before choosing</li>
+                    <li>Click on the answer you think is correct</li>
+                    <li>You’ll see the result and explanation immediately</li>
+                    <li>You can then move to the next question</li>
                 </ul>
             </div>
             
             <div class="quiz-tip-section">
-                <h4 class="accent1">موضوعات الأسئلة</h4>
+                <h4 class="accent1">Question Topics</h4>
                 <div class="quiz-tags">
-                    <div class="tag">📊 قراءة البيانات</div>
-                    <div class="tag">🌍 التغيرات البيئية</div>
-                    <div class="tag">🔧 استخدام الأدوات</div>
+                    <div class="tag">📊 Data Reading</div>
+                    <div class="tag">🌍 Environmental Changes</div>
+                    <div class="tag">🔧 Using Tools</div>
                 </div>
             </div>
             
             <div class="quiz-reminder">
-                <h4>تذكر:</h4>
+                <h4>Remember:</h4>
                 <p>
-                    هذا الاختبار يعتمد على البيانات النموذجية المستخدمة في التجربة التفاعلية. 
-                    الهدف هو فهم كيفية قراءة وتفسير البيانات البيئية.
+                    This quiz is based on the sample data used in the interactive experiment. 
+                    The goal is to understand how to read and interpret environmental data.
                 </p>
             </div>
         </aside>
@@ -86,51 +84,51 @@
     
     <!-- Results Section (Initially Hidden) -->
     <div id="resultsSection" class="quiz-results">
-        <h3>🎉 نتائج الاختبار</h3>
+        <h3>🎉 Quiz Results</h3>
         
         <div class="quiz-score-display">
             <div id="scoreDisplay" class="quiz-score-number">
                 <span id="correctAnswers">0</span>/<span id="totalQuestionsResult">15</span>
             </div>
-            <div id="scoreMessage" class="quiz-score-message">ممتاز!</div>
-            <div id="scorePercentage" class="quiz-score-percentage">نسبة النجاح: 100%</div>
+            <div id="scoreMessage" class="quiz-score-message">Excellent!</div>
+            <div id="scorePercentage" class="quiz-score-percentage">Success Rate: 100%</div>
         </div>
         
         <div class="grid grid-3">
             <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.02); border-radius: 10px;">
                 <div style="font-size: 2rem; margin-bottom: 8px;">🌱</div>
-                <div style="font-weight: 600;">فهم البيانات</div>
-                <div style="color: var(--muted); font-size: 0.9rem;">تفسير المؤشرات البيئية</div>
+                <div style="font-weight: 600;">Data Understanding</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">Interpreting environmental indicators</div>
             </div>
             
             <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.02); border-radius: 10px;">
                 <div style="font-size: 2rem; margin-bottom: 8px;">🎯</div>
-                <div style="font-weight: 600;">التفكير التحليلي</div>
-                <div style="color: var(--muted); font-size: 0.9rem;">ربط البيانات بالواقع</div>
+                <div style="font-weight: 600;">Analytical Thinking</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">Connecting data with reality</div>
             </div>
             
             <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.02); border-radius: 10px;">
                 <div style="font-size: 2rem; margin-bottom: 8px;">🔍</div>
-                <div style="font-weight: 600;">الاستكشاف</div>
-                <div style="color: var(--muted); font-size: 0.9rem;">استخدام الأدوات التفاعلية</div>
+                <div style="font-weight: 600;">Exploration</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">Using interactive tools</div>
             </div>
         </div>
         
         <div style="text-align: center; margin-top: 24px;">
-            <button id="retakeQuiz" class="btn btn-primary">إعادة الاختبار</button>
-            <button id="exploreMore" class="btn btn-secondary">عودة للاستكشاف</button>
+            <button id="retakeQuiz" class="btn btn-primary">Retake Quiz</button>
+            <button id="exploreMore" class="btn btn-secondary">Back to Explore</button>
         </div>
     </div>
     
     <!-- Additional Learning Resources -->
     <section style="margin-top: 40px;">
-        <h3 style="margin-bottom: 20px; text-align: center;">📚 موارد إضافية للتعلم</h3>
+        <h3 style="margin-bottom: 20px; text-align: center;">📚 Additional Learning Resources</h3>
         
         <div class="grid grid-2">
             <div class="card">
-                <h4 style="margin: 0 0 12px 0;">🌍 مصادر البيانات الحقيقية</h4>
+                <h4 style="margin: 0 0 12px 0;">🌍 Real Data Sources</h4>
                 <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 16px;">
-                    إذا كنت مهتمًا بالبيانات البيئية الحقيقية، يمكنك زيارة هذه المصادر:
+                    If you are interested in real environmental data, you can explore these sources:
                 </p>
                 <ul style="color: var(--muted); font-size: 0.85rem; padding-right: 20px;">
                     <li>NASA Earth Observing System Data</li>
@@ -141,15 +139,15 @@
             </div>
             
             <div class="card">
-                <h4 style="margin: 0 0 12px 0;">🔬 تطبيقات عملية</h4>
+                <h4 style="margin: 0 0 12px 0;">🔬 Practical Applications</h4>
                 <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 16px;">
-                    يمكنك تطبيق ما تعلمته في مجالات مختلفة:
+                    You can apply what you learned in different areas:
                 </p>
                 <ul style="color: var(--muted); font-size: 0.85rem; padding-right: 20px;">
-                    <li>متابعة التغيرات البيئية المحلية</li>
-                    <li>فهم تقارير المناخ والبيئة</li>
-                    <li>تطوير مشاريع علمية بيئية</li>
-                    <li>المساهمة في حماية البيئة</li>
+                    <li>Tracking local environmental changes</li>
+                    <li>Understanding climate and environment reports</li>
+                    <li>Developing environmental science projects</li>
+                    <li>Contributing to environmental protection</li>
                 </ul>
             </div>
         </div>
@@ -157,12 +155,13 @@
     
     <!-- Call to Action -->
     <div style="background: linear-gradient(90deg, var(--accent1), var(--accent2)); padding: 24px; border-radius: 16px; margin-top: 32px; text-align: center;">
-        <h3 style="margin: 0 0 12px 0; color: #001;">هل أنت جاهز للمزيد؟</h3>
+        <h3 style="margin: 0 0 12px 0; color: #001;">Are you ready for more?</h3>
         <p style="margin: 0 0 20px 0; color: #003; opacity: 0.8;">
-            عُد إلى أداة الاستكشاف وجرب مناطق وسنوات مختلفة لتعميق فهمك
+            Go back to the explorer tool and try different regions and years to deepen your understanding.
         </p>
         <button id="backToExplorer" class="btn btn-primary" style="background: linear-gradient(135deg, #0ea5e9, #059669); border: none; box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);">
-            🚀 عودة للاستكشاف
+            🚀 Back to Explore
         </button>
     </div>
 </div>
+

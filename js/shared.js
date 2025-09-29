@@ -51,22 +51,22 @@ async function loadTerraQuizData() {
     // Fallback quiz questions
     QUIZ_DATA = [
         {
-            q: 'متى تم إطلاق القمر الصناعي Terra؟',
+            q: 'When was the Terra satellite launched?',
             choices: ['1999', '2000', '2001', '2002'],
             answer: 0,
-            explain: 'تم إطلاق Terra في 18 ديسمبر 1999 كجزء من برنامج Earth Observing System (EOS).'
+            explain: 'Terra was launched on December 18, 1999, as part of the Earth Observing System (EOS) program.'
         },
         {
-            q: 'ما هو الجهاز المسؤول عن مراقبة التلوث الجوي على Terra؟',
+            q: 'Which instrument on Terra is responsible for monitoring atmospheric pollution?',
             choices: ['MODIS', 'ASTER', 'MOPITT', 'CERES'],
             answer: 2,
-            explain: 'MOPITT يراقب أول أكسيد الكربون والميثان في الغلاف الجوي.'
+            explain: 'MOPITT monitors carbon monoxide and methane in the atmosphere.'
         },
         {
-            q: 'كم عدد الأجهزة العلمية الرئيسية على متن Terra؟',
-            choices: ['3 أجهزة', '5 أجهزة', '7 أجهزة', '9 أجهزة'],
+            q: 'How many major scientific instruments are on board Terra?',
+            choices: ['3 instruments', '5 instruments', '7 instruments', '9 instruments'],
             answer: 1,
-            explain: 'يحمل Terra خمسة أجهزة علمية رئيسية: MODIS، ASTER، CERES، MISR، وMOPITT.'
+            explain: 'Terra carries five major scientific instruments: MODIS, ASTER, CERES, MISR, and MOPITT.'
         }
     ];
     return QUIZ_DATA;

@@ -175,7 +175,7 @@ class Router {
         this.contentElement.innerHTML = `
             <div class="loading-spinner">
                 <div class="spinner"></div>
-                <p>جاري التحميل...</p>
+                <p>Loading...</p>
             </div>
         `;
     }
@@ -185,9 +185,9 @@ class Router {
         this.contentElement.innerHTML = `
             <div class="error-message">
                 <div class="container">
-                    <h2>خطأ في التحميل</h2>
+                    <h2>Loading Error</h2>
                     <p>${message}</p>
-                    <button class="btn btn-primary" onclick="location.reload()">إعادة التحميل</button>
+                    <button class="btn btn-primary" onclick="location.reload()">Reload</button>
                 </div>
             </div>
         `;

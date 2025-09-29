@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function initializeApp() {
     // Show loading message
-    showGlobalLoading('جارٍ تحميل بيانات Terra الحقيقية...');
+    showGlobalLoading('Loading Real Terra Data...');
 
     try {
         // Wait a bit for external libraries to load
@@ -37,7 +37,7 @@ async function initializeApp() {
         console.log('✅ NASA Terra Visualization App initialized successfully');
     } catch (error) {
         console.error('❌ Error initializing app:', error);
-        showError('خطأ في تحميل التطبيق');
+        showError('Application Loading Error');
     } finally {
         // Hide loading
         hideGlobalLoading();
@@ -55,7 +55,8 @@ async function loadStaticData() {
         
         if (response.ok) {
             const quizData = await response.json();
-            window.QUIZ_DATA = quizData.questions;
+            // Assuming the JSON structure has a 'questions' array
+            window.QUIZ_DATA = quizData.questions; 
             console.log('✅ Terra quiz questions loaded from JSON:', window.QUIZ_DATA.length, 'questions');
             console.log('🔍 First question:', window.QUIZ_DATA[0]);
         } else {
@@ -68,14 +69,14 @@ async function loadStaticData() {
             window.QUIZ_DATA = window.STATIC_TERRA_QUIZ;
             console.log('✅ Terra quiz questions loaded from static data');
         } else {
-            // Ultimate fallback
+            // Ultimate fallback (translated questions)
             window.QUIZ_DATA = [
                 {
                     id: 1,
-                    question: "متى تم إطلاق القمر الصناعي Terra؟",
+                    question: "When was the Terra satellite launched?",
                     choices: ["1999", "2000", "2001", "2002"],
                     correctAnswer: 0,
-                    explanation: "تم إطلاق Terra في 18 ديسمبر 1999 كجزء من برنامج Earth Observing System (EOS)."
+                    explanation: "Terra was launched on December 18, 1999, as part of the Earth Observing System (EOS) program."
                 }
             ];
             console.log('✅ Using minimal fallback quiz data');
@@ -95,15 +96,21 @@ function showGlobalLoading(message) {
     const loading = document.createElement('div');
     loading.id = 'global-loading';
     loading.innerHTML = `
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
         <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
                     background: rgba(15, 23, 42, 0.95); z-index: 9999; 
                     display: flex; flex-direction: column; align-items: center; 
                     justify-content: center; color: white;">
             <div class="spinner" style="width: 60px; height: 60px; border: 4px solid rgba(255,255,255,0.1); 
-                                     border-top: 4px solid #0ea5e9; border-radius: 50%; 
-                                     animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+                                        border-top: 4px solid #0ea5e9; border-radius: 50%; 
+                                        animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
             <h3 style="margin: 0; font-family: 'Cairo', sans-serif;">${message}</h3>
-            <p style="color: #cbd5e1; margin-top: 8px;">يرجى الانتظار...</p>
+            <p style="color: #cbd5e1; margin-top: 8px;">Please wait...</p>
         </div>
     `;
     document.body.appendChild(loading);
@@ -376,7 +383,7 @@ function setupExplorerControls() {
     
     function startAnimation() {
         playing = true;
-        playPauseBtn.textContent = '⏸ إيقاف';
+        playPauseBtn.textContent = '⏸ Pause';
         playInterval = setInterval(() => {
             let newYear = currentYear + 1;
             if (newYear > 2023) newYear = 2000;
@@ -388,7 +395,7 @@ function setupExplorerControls() {
     
     function stopAnimation() {
         playing = false;
-        playPauseBtn.textContent = '▶ تشغيل';
+        playPauseBtn.textContent = '▶ Play';
         clearInterval(playInterval);
     }
     
@@ -453,9 +460,11 @@ function setupExplorerControls() {
         if (!window.currentChart) return;
         
         window.currentChart.data.datasets.forEach(ds => {
-            if ((currentDataset === 'vegetation' && ds.label.includes('النباتي')) ||
-                (currentDataset === 'ice' && ds.label.includes('الجليدي')) ||
-                (currentDataset === 'pollution' && ds.label.includes('التلوث'))) {
+            // Note: Chart labels in Arabic are translated below for logic check
+            const label = ds.label.toLowerCase(); 
+            if ((currentDataset === 'vegetation' && label.includes('vegetation')) ||
+                (currentDataset === 'ice' && label.includes('ice')) ||
+                (currentDataset === 'pollution' && label.includes('pollution'))) {
                 ds.borderWidth = 4;
                 ds.pointRadius = 6;
             } else {
@@ -487,23 +496,23 @@ function setupExplorerControls() {
     updateVisualization();
 }
 
-// Helper functions
+// Helper functions (Story text translated)
 function getStoryText(dataset, year, region = 'world') {
     if (dataset === 'vegetation') {
-        if (year <= 2005) return 'سنة ٢٠٠٠–٢٠٠٥: غطاء نباتي قوي في المناطق الرئيسية.';
-        if (year <= 2012) return 'سنة ٢٠٠٦–٢٠١٢: بداية تراجع واضح بسبب إزالة الغابات.';
-        if (year <= 2018) return 'سنة ٢٠١3–٢٠١٨: فقدان متسارع في مناطق الأمازون ومناطق استوائية أخرى.';
-        return 'سنة ٢٠١٩–٢٠٢٣: خسائر كبيرة في الغطاء النباتي — ضرورة إجراءات عاجلة.';
+        if (year <= 2005) return '2000–2005: Strong vegetation cover in key regions.';
+        if (year <= 2012) return '2006–2012: Start of a noticeable decline due to deforestation.';
+        if (year <= 2018) return '2013–2018: Accelerated loss in the Amazon and other tropical areas.';
+        return '2019–2023: Significant losses in vegetation cover — urgent action needed.';
     } else if (dataset === 'ice') {
-        if (year <= 2005) return 'جليد مستقر نسبياً، لكن علامات الذوبان بدأت تظهر.';
-        if (year <= 2012) return 'ذوبان متسارع في الصيفات القطبية.';
-        if (year <= 2018) return 'تراجع كبير في سمك الجليد البحري وموسمية الذوبان.';
-        return 'الوصول إلى معدلات ذوبان غير مسبوقة في السجلات الحديثة.';
+        if (year <= 2005) return 'Relatively stable ice, but early signs of melting are visible.';
+        if (year <= 2012) return 'Accelerated melting during polar summers.';
+        if (year <= 2018) return 'Significant reduction in sea ice thickness and seasonal melting.';
+        return 'Reaching unprecedented melting rates in recent records.';
     } else {
-        if (year <= 2005) return 'مستويات تلوث متوسطة في المدن الكبرى.';
-        if (year <= 2012) return 'تزايد الانبعاثات نتيجة النمو الصناعي.';
-        if (year <= 2018) return 'تحسن مؤقت في بعض المناطق (سياسات)، وتدهور في مناطق أخرى.';
-        return 'عودة التلوث إلى مستويات مرتفعة بعد التعافي المؤقت.';
+        if (year <= 2005) return 'Moderate pollution levels in major cities.';
+        if (year <= 2012) return 'Increased emissions due to industrial growth.';
+        if (year <= 2018) return 'Temporary improvement in some areas (policy-driven), deterioration in others.';
+        return 'Pollution returning to high levels after temporary recovery.';
     }
 }
 
@@ -549,14 +558,14 @@ function initializeQuizPage() {
             setupQuiz();
         }).catch(error => {
             console.error('❌ Failed to load quiz data:', error);
-            // Use fallback data
+            // Use fallback data (translated question)
             window.QUIZ_DATA = [
                 {
                     id: 1,
-                    question: "متى تم إطلاق القمر الصناعي Terra؟",
+                    question: "When was the Terra satellite launched?",
                     choices: ["1999", "2000", "2001", "2002"],
                     correctAnswer: 0,
-                    explanation: "تم إطلاق Terra في 18 ديسمبر 1999 كجزء من برنامج Earth Observing System (EOS)."
+                    explanation: "Terra was launched on December 18, 1999, as part of the Earth Observing System (EOS)."
                 }
             ];
             setupQuiz();
@@ -603,7 +612,7 @@ function setupQuiz() {
         });
         
         if (questionTitle) {
-            questionTitle.textContent = 'خطأ في تحميل الأسئلة - جاري إعادة المحاولة...';
+            questionTitle.textContent = 'Error loading questions - Retrying...';
         }
         
         // Try to reload quiz data
@@ -617,13 +626,13 @@ function setupQuiz() {
                 } else {
                     console.error('❌ Still no quiz data after retry');
                     if (questionTitle) {
-                        questionTitle.textContent = 'فشل في تحميل الأسئلة';
+                        questionTitle.textContent = 'Failed to load questions';
                     }
                 }
             } catch (error) {
                 console.error('❌ Error retrying quiz data load:', error);
                 if (questionTitle) {
-                    questionTitle.textContent = 'خطأ في تحميل الأسئلة';
+                    questionTitle.textContent = 'Error loading questions';
                 }
             }
         }, 1000);
@@ -708,7 +717,7 @@ function setupQuiz() {
             // Show feedback if question was already answered
             const existingAnswer = userAnswers.find(answer => answer.questionIndex === currentQuestionIndex);
             if (existingAnswer) {
-                feedback.textContent = existingAnswer.isCorrect ? 'أحسنت! ' + existingAnswer.explanation : 'خطأ — ' + existingAnswer.explanation;
+                feedback.textContent = existingAnswer.isCorrect ? 'Correct! ' + existingAnswer.explanation : 'Wrong — ' + existingAnswer.explanation;
                 feedback.style.display = 'block';
             } else {
                 feedback.textContent = '';
@@ -748,16 +757,16 @@ function setupQuiz() {
             correctAnswer: correctAnswer,
             isCorrect: index === correctAnswer,
             explanation: explanation,
-            category: question.category || 'عام'
+            category: question.category || 'General'
         });
         
         if (index === correctAnswer) {
             element.classList.add('correct');
-            feedback.textContent = 'أحسنت! ' + explanation;
+            feedback.textContent = 'Correct! ' + explanation;
             score++;
         } else {
             element.classList.add('wrong');
-            feedback.textContent = 'خطأ — ' + explanation;
+            feedback.textContent = 'Wrong — ' + explanation;
             choices[correctAnswer].classList.add('correct');
         }
         
@@ -787,19 +796,19 @@ function setupQuiz() {
             if (totalQuestionsResultEl) totalQuestionsResultEl.textContent = questions.length;
             
             const percentage = Math.round((score / questions.length) * 100);
-            if (scorePercentageEl) scorePercentageEl.textContent = `نسبة النجاح: ${percentage}%`;
+            if (scorePercentageEl) scorePercentageEl.textContent = `Success Rate: ${percentage}%`;
             
             if (scoreMessageEl) {
                 if (percentage === 100) {
-                    scoreMessageEl.textContent = 'ممتاز! إجابات صحيحة 100%';
+                    scoreMessageEl.textContent = 'Excellent! 100% Correct Answers';
                 } else if (percentage >= 80) {
-                    scoreMessageEl.textContent = 'أحسنت! أداء ممتاز';
+                    scoreMessageEl.textContent = 'Great Job! Excellent Performance';
                 } else if (percentage >= 60) {
-                    scoreMessageEl.textContent = 'جيد جداً! أداء جيد';
+                    scoreMessageEl.textContent = 'Very Good! Good Performance';
                 } else if (percentage >= 40) {
-                    scoreMessageEl.textContent = 'مقبول! يمكنك التحسن أكثر';
+                    scoreMessageEl.textContent = 'Acceptable! You can improve more';
                 } else {
-                    scoreMessageEl.textContent = 'لا بأس، حاول مرة أخرى';
+                    scoreMessageEl.textContent = 'Not bad, try again';
                 }
             }
             
@@ -823,13 +832,13 @@ function setupQuiz() {
         detailedSection.id = 'detailedResults';
         detailedSection.style.marginTop = '32px';
         detailedSection.innerHTML = `
-            <h3 style="margin: 0 0 20px 0; text-align: center;">📋 تفاصيل الإجابات</h3>
+            <h3 style="margin: 0 0 20px 0; text-align: center;">📋 Answer Details</h3>
             <div class="detailed-questions">
                 ${userAnswers.map((answer, index) => `
                     <div class="question-result" style="margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.02); border-radius: 10px; border-left: 4px solid ${answer.isCorrect ? '#10b981' : '#ef4444'};">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                             <h4 style="margin: 0; color: ${answer.isCorrect ? '#10b981' : '#ef4444'};">
-                                ${answer.isCorrect ? '✅' : '❌'} سؤال ${index + 1}
+                                ${answer.isCorrect ? '✅' : '❌'} Question ${index + 1}
                             </h4>
                             <span class="category-tag" style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 6px; font-size: 0.8rem;">
                                 ${answer.category}
@@ -837,19 +846,19 @@ function setupQuiz() {
                         </div>
                         <p style="margin: 0 0 12px 0; font-weight: 600;">${answer.question}</p>
                         <div style="margin-bottom: 8px;">
-                            <strong>إجابتك:</strong> 
+                            <strong>Your Answer:</strong> 
                             <span style="color: ${answer.isCorrect ? '#10b981' : '#ef4444'};">
                                 ${questions[answer.questionIndex].choices[answer.userAnswer]}
                             </span>
                         </div>
                         <div style="margin-bottom: 8px;">
-                            <strong>الإجابة الصحيحة:</strong> 
+                            <strong>Correct Answer:</strong> 
                             <span style="color: #10b981;">
                                 ${questions[answer.questionIndex].choices[answer.correctAnswer]}
                             </span>
                         </div>
                         <div style="color: var(--muted); font-size: 0.9rem;">
-                            <strong>التفسير:</strong> ${answer.explanation}
+                            <strong>Explanation:</strong> ${answer.explanation}
                         </div>
                     </div>
                 `).join('')}
