@@ -2,28 +2,24 @@
 <div class="container">
     <!-- Hero Section -->
     <section style="margin-bottom: 40px; text-align: center;">
-        <div style="background: linear-gradient(135deg, #0f172a, #1e293b); padding: 40px 20px; border-radius: 20px; margin-bottom: 20px;">
-            <h1 style="font-size: 2.5rem; margin-bottom: 16px; background: linear-gradient(135deg, #0ea5e9, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                🛰️ استكشاف بيانات Terra الحقيقية
-            </h1>
-            <p style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 20px;">
-                رحلة تفاعلية عبر 25 سنة من مراقبة الأرض بواسطة القمر الصناعي Terra
-            </p>
-            <div style="display: inline-block; padding: 8px 16px; background: rgba(14, 165, 233, 0.2); border-radius: 50px; border: 1px solid rgba(14, 165, 233, 0.4);">
-                <span style="color: #0ea5e9; font-size: 0.9rem;">🌍 بيانات حقيقية من NASA • MODIS • ASTER • CERES • MOPITT • MISR</span>
+        <div class="explorer-hero">
+            <h1>🛰️ استكشاف بيانات Terra الحقيقية</h1>
+            <p>رحلة تفاعلية عبر 25 سنة من مراقبة الأرض بواسطة القمر الصناعي Terra</p>
+            <div class="explorer-badge">
+                <span>🌍 بيانات حقيقية من NASA • MODIS • ASTER • CERES • MOPITT • MISR</span>
             </div>
         </div>
     </section>
 
     <!-- Control Panel -->
     <div class="panel" style="margin-bottom: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 16px;">
-            <div>
-                <h3 style="margin: 0; color: #0ea5e9;">🎮 مركز التحكم</h3>
-                <p style="color: var(--muted); font-size: 0.9rem; margin: 4px 0 0 0;">تحكم في عرض البيانات والمنطقة الزمنية</p>
+        <div class="control-panel">
+            <div class="control-header">
+                <h3>🎮 مركز التحكم</h3>
+                <p>تحكم في عرض البيانات والمنطقة الزمنية</p>
             </div>
-            <div style="display: flex; gap: 8px; align-items: center;">
-                <select id="regionSelect" style="background: rgba(255,255,255,0.05); color: white; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+            <div class="region-selector">
+                <select id="regionSelect" class="region-select">
                     <option value="world">🌍 العالم كله</option>
                     <option value="amazon">🌳 الأمازون</option>
                     <option value="arctic">❄️ القطب الشمالي</option>
@@ -34,14 +30,14 @@
         </div>
         
         <!-- Dataset Selection -->
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
-            <button class="dataset-btn active" data-dataset="vegetation" style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 10px; color: #10b981; font-weight: 600;">
+        <div class="dataset-buttons">
+            <button class="dataset-btn active" data-dataset="vegetation">
                 🌱 الغطاء النباتي (NDVI)
             </button>
-            <button class="dataset-btn" data-dataset="ice" style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 10px; color: #3b82f6; font-weight: 600;">
+            <button class="dataset-btn" data-dataset="ice">
                 ❄️ الغطاء الجليدي
             </button>
-            <button class="dataset-btn" data-dataset="pollution" style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 10px; color: #ef4444; font-weight: 600;">
+            <button class="dataset-btn" data-dataset="pollution">
                 🏭 تلوث الهواء (CO)
             </button>
         </div>

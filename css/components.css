@@ -630,7 +630,18 @@
     color: var(--muted);
 }
 
-/* Responsive Components */
+/* Enhanced Responsive Components */
+@media (max-width: 1200px) {
+    .grid-main {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 1000px) {
     .grid-main {
         grid-template-columns: 1fr;
@@ -639,11 +650,20 @@
     .grid-2 {
         grid-template-columns: 1fr;
     }
+    
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card {
+        padding: 24px;
+    }
 }
 
 @media (max-width: 768px) {
     .card {
         padding: 20px;
+        margin-bottom: 24px;
     }
     
     .panel {
@@ -653,6 +673,12 @@
     
     .datasets {
         justify-content: center;
+        gap: 6px;
+    }
+    
+    .dataset-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
     }
     
     .map-container {
@@ -661,5 +687,702 @@
     
     .viewer {
         height: 200px;
+    }
+    
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Quiz responsive */
+    .quiz-container {
+        padding: 16px;
+        min-height: auto;
+    }
+    
+    .choice {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    /* Timeline responsive */
+    .timeline {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .timeline input[type="range"] {
+        width: 100%;
+    }
+    
+    /* Player controls responsive */
+    .player {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .play-btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .panel {
+        padding: 12px;
+    }
+    
+    .dataset-btn {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+    
+    .viewer {
+        height: 180px;
+    }
+    
+    .chart-wrap {
+        height: 180px;
+    }
+    
+    .choice {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .feedback {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Terra instrument panels mobile */
+    .terra-instrument-panel {
+        padding: 12px;
+    }
+    
+    .instrument-stats {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* About Page Components */
+.about-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 56px;
+    margin-bottom: 48px;
+}
+
+.info-card {
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid;
+}
+
+.mission-info {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.instruments-info {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.info-card h3 {
+    margin-bottom: 32px;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.mission-info h3 {
+    color: #3b82f6;
+}
+
+.instruments-info h3 {
+    color: #10b981;
+}
+
+.data-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.feature-card {
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.vegetation-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.vegetation-card:hover {
+    box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2);
+}
+
+.ice-card {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.ice-card:hover {
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+}
+
+.pollution-card {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.pollution-card:hover {
+    box-shadow: 0 25px 50px rgba(239, 68, 68, 0.2);
+}
+
+.feature-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.feature-header h4 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.vegetation-card h4 {
+    color: #10b981;
+}
+
+.ice-card h4 {
+    color: #3b82f6;
+}
+
+.pollution-card h4 {
+    color: #ef4444;
+}
+
+/* About page responsive */
+@media (max-width: 768px) {
+    .about-info-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .info-card {
+        padding: 24px;
+    }
+    
+    .data-features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .feature-card {
+        padding: 24px;
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+    }
+    
+    .feature-header h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-card {
+        padding: 20px;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Project Goals Section */
+.project-goals-section {
+    margin-bottom: 80px;
+}
+
+.project-goals-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    padding: 56px;
+    border-radius: 28px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.project-goals-title {
+    margin-bottom: 48px;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--text-primary);
+    font-weight: 900;
+}
+
+.project-goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 48px;
+}
+
+.goal-card {
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.goal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.education-goal {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.education-goal:hover {
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+}
+
+.awareness-goal {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.awareness-goal:hover {
+    box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2);
+}
+
+.goal-icon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+}
+
+.goal-card h4 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.education-goal h4 {
+    color: #3b82f6;
+}
+
+.awareness-goal h4 {
+    color: #10b981;
+}
+
+.goal-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Project goals responsive */
+@media (max-width: 768px) {
+    .project-goals-card {
+        padding: 32px;
+    }
+    
+    .project-goals-title {
+        margin-bottom: 32px;
+        font-size: 2rem;
+    }
+    
+    .project-goals-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .goal-card {
+        padding: 32px;
+    }
+    
+    .goal-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .goal-card h4 {
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+    }
+    
+    .goal-card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-goals-card {
+        padding: 24px;
+    }
+    
+    .project-goals-title {
+        margin-bottom: 24px;
+        font-size: 1.8rem;
+    }
+    
+    .project-goals-grid {
+        gap: 24px;
+    }
+    
+    .goal-card {
+        padding: 24px;
+    }
+    
+    .goal-icon {
+        font-size: 3rem;
+        margin-bottom: 16px;
+    }
+    
+    .goal-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .goal-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* Explorer Page Components */
+.explorer-hero {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.explorer-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #0ea5e9, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.explorer-hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.explorer-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(14, 165, 233, 0.2);
+    border-radius: 50px;
+    border: 1px solid rgba(14, 165, 233, 0.4);
+}
+
+.explorer-badge span {
+    color: #0ea5e9;
+    font-size: 0.9rem;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.control-header h3 {
+    margin: 0;
+    color: #0ea5e9;
+}
+
+.control-header p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 4px 0 0 0;
+}
+
+.region-selector {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.region-select {
+    background: rgba(255,255,255,0.05);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.dataset-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.dataset-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 1px solid;
+    transition: all 0.3s ease;
+}
+
+.dataset-btn[data-dataset="vegetation"] {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #10b981;
+}
+
+.dataset-btn[data-dataset="ice"] {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #3b82f6;
+}
+
+.dataset-btn[data-dataset="pollution"] {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #ef4444;
+}
+
+/* Explorer responsive */
+@media (max-width: 768px) {
+    .explorer-hero {
+        padding: 24px 16px;
+    }
+    
+    .control-panel {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .control-header {
+        text-align: center;
+    }
+    
+    .region-selector {
+        justify-content: center;
+    }
+    
+    .dataset-buttons {
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .dataset-btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .explorer-hero {
+        padding: 20px 12px;
+    }
+    
+    .dataset-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .dataset-btn {
+        padding: 12px 16px;
+        justify-content: center;
+    }
+    
+    .region-select {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Quiz Page Components */
+.quiz-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.quiz-header h2 {
+    margin-bottom: 16px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.quiz-header p {
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.quiz-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.quiz-header-section h3 {
+    margin: 0;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.quiz-counter {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.quiz-question-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-question-content {
+    flex: 1;
+}
+
+.quiz-question-title {
+    margin-bottom: 20px;
+    line-height: 1.4;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.quiz-navigation-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.quiz-progress-container {
+    background: rgba(255,255,255,0.1);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.quiz-progress-bar {
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    height: 100%;
+    width: 6.67%;
+    transition: width 0.3s ease;
+}
+
+/* Quiz responsive */
+@media (max-width: 768px) {
+    .quiz-header-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .quiz-navigation-buttons {
+        gap: 8px;
+    }
+    
+    .quiz-navigation-buttons .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .quiz-question-title {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+    }
+    
+    .choices {
+        gap: 6px;
+    }
+    
+    .choice {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-header {
+        margin-bottom: 24px;
+    }
+    
+    .quiz-navigation-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .quiz-navigation-buttons .btn {
+        width: 100%;
+        max-width: 200px;
+        padding: 12px 16px;
+    }
+    
+    .quiz-question-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .choice {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .feedback {
+        padding: 12px;
+        font-size: 0.9rem;
     }
 }

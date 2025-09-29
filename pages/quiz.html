@@ -1,8 +1,8 @@
 <div class="container">
     <!-- Header Section -->
-    <section style="margin-bottom: 32px; text-align: center;">
-        <h2 style="margin-bottom: 16px;">🧠 اختبار المعرفة البيئية</h2>
-        <p style="color: var(--muted); max-width: 600px; margin: 0 auto;">
+    <section class="quiz-header">
+        <h2>🧠 اختبار المعرفة البيئية</h2>
+        <p>
             اختبر معرفتك حول التغيرات البيئية التي استكشفتها في القسم التفاعلي. 
             هذا الاختبار يحتوي على أسئلة حول البيانات والمؤشرات البيئية.
         </p>
@@ -11,16 +11,16 @@
     <div class="grid grid-main">
         <!-- Main Quiz Section -->
         <div class="quiz-container" style="display: flex; flex-direction: column; height: 100%; min-height: 600px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="margin: 0;">اختبار سريع</h3>
-                <div style="color: var(--muted); font-size: 0.9rem;">
+            <div class="quiz-header-section">
+                <h3>اختبار سريع</h3>
+                <div class="quiz-counter">
                     سؤال <span id="currentQuestionNum">1</span> من <span id="totalQuestions">15</span>
                 </div>
             </div>
             
-            <div id="qBox" style="flex: 1; display: flex; flex-direction: column;">
-                <div style="flex: 1;">
-                    <h3 id="qTitle" style="margin-bottom: 20px; line-height: 1.4;">
+            <div id="qBox" class="quiz-question-box">
+                <div class="quiz-question-content">
+                    <h3 id="qTitle" class="quiz-question-title">
                         جاري تحميل السؤال...
                     </h3>
                     
@@ -36,7 +36,7 @@
                 <!-- Navigation buttons and progress bar - always at bottom -->
                 <div class="quiz-navigation">
                     <!-- Navigation buttons -->
-                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+                    <div class="quiz-navigation-buttons">
                         <button id="prevQ" class="btn btn-secondary" style="display: none;">السؤال السابق</button>
                         <button id="nextQ" class="btn btn-secondary">السؤال التالي</button>
                         <button id="resetQ" class="btn btn-secondary">إعادة البدء</button>
@@ -44,8 +44,8 @@
                     </div>
                     
                     <!-- Progress Bar -->
-                    <div style="background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; overflow: hidden;">
-                        <div id="progressBar" style="background: linear-gradient(90deg, var(--accent1), var(--accent2)); height: 100%; width: 6.67%; transition: width 0.3s ease;"></div>
+                    <div class="quiz-progress-container">
+                        <div id="progressBar" class="quiz-progress-bar"></div>
                     </div>
                 </div>
             </div>

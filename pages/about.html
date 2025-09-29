@@ -19,9 +19,9 @@
                 🛰️ معلومات عن القمر الصناعي Terra
             </h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 56px; margin-bottom: 48px;">
-                <div style="padding: 40px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05)); border-radius: 24px; border: 1px solid rgba(59, 130, 246, 0.2);">
-                    <h3 style="color: #3b82f6; margin-bottom: 32px; font-size: 1.6rem; text-align: center; font-weight: 700;">📅 معلومات المهمة</h3>
+            <div class="about-info-grid">
+                <div class="info-card mission-info">
+                    <h3>📅 معلومات المهمة</h3>
                     <ul style="color: var(--muted); line-height: 2.4; font-size: 1.1rem; list-style: none; padding: 0;">
                         <li style="margin-bottom: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center;">
                             <strong style="color: var(--text-primary);">تاريخ الإطلاق:</strong> 
@@ -46,8 +46,8 @@
                     </ul>
                 </div>
                 
-                <div style="padding: 40px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-radius: 24px; border: 1px solid rgba(16, 185, 129, 0.2);">
-                    <h3 style="color: #10b981; margin-bottom: 32px; font-size: 1.6rem; text-align: center; font-weight: 700;">🔬 الأجهزة العلمية</h3>
+                <div class="info-card instruments-info">
+                    <h3>🔬 الأجهزة العلمية</h3>
                     <ul style="color: var(--muted); line-height: 2.4; font-size: 1.1rem; list-style: none; padding: 0;">
                         <li style="margin-bottom: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
                             <strong style="color: #10b981; display: block; margin-bottom: 4px;">MODIS:</strong> 
@@ -77,11 +77,11 @@
             <div style="margin-top: 48px;">
                 <h3 style="text-align: center; margin-bottom: 40px; font-size: 2rem; color: var(--text-primary);">📊 البيانات الحقيقية المتاحة</h3>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-                    <div class="feature-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); padding: 32px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 50px rgba(16, 185, 129, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div style="text-align: center; margin-bottom: 24px;">
-                            <div style="font-size: 4rem; margin-bottom: 20px;">🌱</div>
-                            <h4 style="margin: 0; color: #10b981; font-size: 1.4rem; font-weight: 700;">الغطاء النباتي</h4>
+                <div class="data-features-grid">
+                    <div class="feature-card vegetation-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🌱</div>
+                            <h4>الغطاء النباتي</h4>
                         </div>
                         <p style="color: var(--muted); text-align: center; margin-bottom: 24px; line-height: 1.6; font-size: 1rem;">
                             بيانات NDVI من جهاز MODIS تُظهر صحة النباتات عالمياً
@@ -94,10 +94,10 @@
                         </ul>
                     </div>
                     
-                    <div class="feature-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05)); padding: 32px; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 50px rgba(59, 130, 246, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div style="text-align: center; margin-bottom: 24px;">
-                            <div style="font-size: 4rem; margin-bottom: 20px;">❄️</div>
-                            <h4 style="margin: 0; color: #3b82f6; font-size: 1.4rem; font-weight: 700;">الغطاء الجليدي</h4>
+                    <div class="feature-card ice-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">❄️</div>
+                            <h4>الغطاء الجليدي</h4>
                         </div>
                         <p style="color: var(--muted); text-align: center; margin-bottom: 24px; line-height: 1.6; font-size: 1rem;">
                             بيانات الثلوج والجليد من Terra MODIS
@@ -110,10 +110,10 @@
                         </ul>
                     </div>
                     
-                    <div class="feature-card" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05)); padding: 32px; border-radius: 20px; border: 1px solid rgba(239, 68, 68, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 50px rgba(239, 68, 68, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        <div style="text-align: center; margin-bottom: 24px;">
-                            <div style="font-size: 4rem; margin-bottom: 20px;">🏭</div>
-                            <h4 style="margin: 0; color: #ef4444; font-size: 1.4rem; font-weight: 700;">تلوث الهواء</h4>
+                    <div class="feature-card pollution-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🏭</div>
+                            <h4>تلوث الهواء</h4>
                         </div>
                         <p style="color: var(--muted); text-align: center; margin-bottom: 24px; line-height: 1.6; font-size: 1rem;">
                             قياسات أول أكسيد الكربون من جهاز MOPITT
@@ -131,24 +131,24 @@
     </section>
 
     <!-- Project Overview -->
-    <section class="about-section" style="margin-bottom: 80px;">
-        <div class="card" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)); padding: 56px; border-radius: 28px; backdrop-filter: blur(15px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);">
-            <h3 style="margin-bottom: 48px; font-size: 2.5rem; text-align: center; color: var(--text-primary); font-weight: 900;">🎯 الهدف من المشروع</h3>
+    <section class="about-section project-goals-section">
+        <div class="card project-goals-card">
+            <h3 class="project-goals-title">🎯 الهدف من المشروع</h3>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 48px;">
-                <div style="padding: 40px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05)); border-radius: 24px; border: 1px solid rgba(59, 130, 246, 0.2); text-align: center;">
-                    <div style="font-size: 4rem; margin-bottom: 24px;">🎓</div>
-                    <h4 style="color: #3b82f6; margin-bottom: 20px; font-size: 1.5rem; font-weight: 700;">التعليم التفاعلي</h4>
-                    <p style="color: var(--muted); line-height: 1.8; font-size: 1.1rem;">
+            <div class="project-goals-grid">
+                <div class="goal-card education-goal">
+                    <div class="goal-icon">🎓</div>
+                    <h4>التعليم التفاعلي</h4>
+                    <p>
                         يهدف المشروع إلى توفير تجربة تعليمية تفاعلية تساعد المستخدمين على فهم 
                         التغيرات البيئية المعقدة من خلال التصور البصري والبيانات الحقيقية.
                     </p>
                 </div>
                 
-                <div style="padding: 40px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-radius: 24px; border: 1px solid rgba(16, 185, 129, 0.2); text-align: center;">
-                    <div style="font-size: 4rem; margin-bottom: 24px;">🌱</div>
-                    <h4 style="color: #10b981; margin-bottom: 20px; font-size: 1.5rem; font-weight: 700;">الوعي البيئي</h4>
-                    <p style="color: var(--muted); line-height: 1.8; font-size: 1.1rem;">
+                <div class="goal-card awareness-goal">
+                    <div class="goal-icon">🌱</div>
+                    <h4>الوعي البيئي</h4>
+                    <p>
                         رفع مستوى الوعي حول أهمية حماية البيئة ومراقبة التغيرات المناخية 
                         من خلال عرض البيانات بطريقة مفهومة وجذابة بصريًا.
                     </p>
@@ -181,21 +181,21 @@
                     <ul style="color: var(--muted); font-size: 1rem; line-height: 1.8; list-style: none; padding: 0;">
                         <li style="margin-bottom: 8px;">• Chart.js للرسوم البيانية</li>
                         <li style="margin-bottom: 8px;">• Leaflet.js للخرائط</li>
-                        <li style="margin-bottom: 8px;">• NASA APIs</li>
-                        <li style="margin-bottom: 8px;">• Real-time Data Processing</li>
-                        <li>• JSON Data Structure</li>
+                        <li style="margin-bottom: 8px;">• بيانات NASA المعالجة</li>
+                        <li style="margin-bottom: 8px;">• معالجة البيانات المحلية</li>
+                        <li>• هيكل بيانات JSON</li>
                     </ul>
                 </div>
                 
                 <div style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); border-radius: 20px; border: 1px solid rgba(245, 158, 11, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 20px;">🚀</div>
-                    <h4 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">البنية التحتية</h4>
+                    <div style="font-size: 3rem; margin-bottom: 20px;">📁</div>
+                    <h4 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">البيانات الثابتة</h4>
                     <ul style="color: var(--muted); font-size: 1rem; line-height: 1.8; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 8px;">• Node.js Backend</li>
-                        <li style="margin-bottom: 8px;">• Express.js Server</li>
-                        <li style="margin-bottom: 8px;">• NASA API Proxy</li>
-                        <li style="margin-bottom: 8px;">• Real-time Updates</li>
-                        <li>• Responsive Design</li>
+                        <li style="margin-bottom: 8px;">• ملفات JSON محلية</li>
+                        <li style="margin-bottom: 8px;">• بيانات NASA Terra المعالجة</li>
+                        <li style="margin-bottom: 8px;">• تطبيق ويب ثابت</li>
+                        <li style="margin-bottom: 8px;">• GitHub Pages متوافق</li>
+                        <li>• تصميم متجاوب</li>
                     </ul>
                 </div>
             </div>
@@ -209,7 +209,8 @@
             
             <div style="text-align: center; margin-bottom: 40px;">
                 <p style="color: var(--muted); font-size: 1.2rem; line-height: 1.8; max-width: 900px; margin: 0 auto;">
-                    جميع البيانات المستخدمة في هذا المشروع مستقاة من مصادر رسمية موثوقة من وكالة ناسا
+                    جميع البيانات المستخدمة في هذا المشروع مستقاة من مصادر رسمية موثوقة من وكالة ناسا، 
+                    معالجة ومخزنة في ملفات JSON محلية للعرض التفاعلي
                 </p>
             </div>
             
@@ -220,18 +221,18 @@
                 </div>
                 
                 <div style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05)); border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2);">
-                    <h4 style="color: #3b82f6; margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">📊 NASA EarthData</h4>
-                    <p style="color: var(--muted); font-size: 1rem;">قاعدة بيانات الأرض من ناسا</p>
+                    <h4 style="color: #3b82f6; margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">📊 بيانات MODIS</h4>
+                    <p style="color: var(--muted); font-size: 1rem;">بيانات الغطاء النباتي من MODIS</p>
                 </div>
                 
                 <div style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05)); border-radius: 20px; border: 1px solid rgba(139, 92, 246, 0.2);">
-                    <h4 style="color: #8b5cf6; margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">🖼️ NASA APOD</h4>
-                    <p style="color: var(--muted); font-size: 1rem;">صور يومية من الفضاء</p>
+                    <h4 style="color: #8b5cf6; margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">❄️ بيانات الجليد</h4>
+                    <p style="color: var(--muted); font-size: 1rem;">بيانات الغطاء الجليدي القطبي</p>
                 </div>
                 
                 <div style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); border-radius: 20px; border: 1px solid rgba(245, 158, 11, 0.2);">
-                    <h4 style="color: #f59e0b; margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">🗺️ NASA Worldview</h4>
-                    <p style="color: var(--muted); font-size: 1rem;">خرائط الأقمار الصناعية</p>
+                    <h4 style="color: #f59e0b; margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">🏭 بيانات MOPITT</h4>
+                    <p style="color: var(--muted); font-size: 1rem;">بيانات تلوث الهواء من MOPITT</p>
                 </div>
             </div>
         </div>
@@ -245,8 +246,8 @@
             <div style="position: relative; z-index: 2; text-align: center;">
                 <h3 style="margin-bottom: 32px; color: white; font-size: 2.5rem; font-weight: 900;">👥 الفريق والشكر</h3>
                 <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: 0 auto 40px auto;">
-                    هذا المشروع مطور بواسطة فريق مختص بتقنيات الويب وعلوم البيانات، 
-                    مع الشكر الخاص لوكالة ناسا لتوفير البيانات المفتوحة.
+                    هذا المشروع مطور كتطبيق ويب ثابت باستخدام تقنيات الويب الحديثة، 
+                    مع الشكر الخاص لوكالة ناسا لتوفير البيانات المفتوحة والمعالجة محلياً.
                 </p>
                 
                 <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
