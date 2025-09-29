@@ -14,7 +14,7 @@ npm run serve
 ### Full Mode (with Real NASA API Integration)
 ```bash
 npm start
-# Server runs on http://localhost:3000
+# Server runs on configured port (default: 3000)
 ```
 
 ## 📁 Project Structure

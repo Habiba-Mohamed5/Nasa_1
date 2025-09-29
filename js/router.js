@@ -67,6 +67,16 @@ class Router {
     
     // Get current path from URL pathname
     getPathFromURL() {
+        // Handle GitHub Pages SPA redirect format
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectPath = urlParams.get('/');
+        
+        if (redirectPath) {
+            // Clean up the path from GitHub Pages redirect
+            const cleanPath = redirectPath.replace(/~and~/g, '&');
+            return cleanPath || 'home';
+        }
+        
         const path = window.location.pathname.slice(1);
         return path || 'home';
     }
@@ -82,7 +92,7 @@ class Router {
         
         // Add to browser history
         if (addToHistory) {
-            const url = page === 'home' ? '/' : `/${page}`;
+            const url = page === 'home' ? './' : `./${page}`;
             history.pushState({ page }, '', url);
             console.log('📝 History updated:', url);
         }
