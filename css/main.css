@@ -40,11 +40,7 @@ body {
     min-height: 100vh;
     /* Prevent white flash during page load */
     background-color: #0f172a;
-     background-image: url('../public/Aster.png');
- 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    
     
 }
 
@@ -118,6 +114,11 @@ body {
     position: relative;
     min-height: calc(100vh - 80px);
     overflow: hidden;
+     background-image: url('../public/Aster.png');
+ 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
    
 }
 
