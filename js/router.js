@@ -203,20 +203,39 @@ class Router {
         `;
     }
     
-    // Update navigation active state
-    updateNavigation(page) {
-        this.navLinks.forEach(link => {
-            const linkPage = link.getAttribute('data-page');
-            if (linkPage === page) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
+   // Update navigation active state
+updateNavigation(page) {
+    this.navLinks.forEach(link => {
+        const linkPage = link.getAttribute('data-page');
+        if (linkPage === page) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    // Update body data-page attribute for CSS styling
+    document.body.setAttribute('data-page', page);
+
+    // ===================================================
+    // ⬇️ أضيفي الكود التالي هنا للتحكم في الفيديو ⬇️
+    // ===================================================
+    const bgVideo = document.getElementById('global-background-video');
+    if (bgVideo) {
+        if (page === 'explorer') {
+            bgVideo.classList.remove('is-hidden');
+            if (bgVideo.paused) {
+                // نتأكد من أن الفيديو يعمل عند الانتقال للصفحة
+                bgVideo.play().catch(e => console.error("Video autoplay failed:", e));
             }
-        });
-        
-        // Update body data-page attribute for CSS styling
-        document.body.setAttribute('data-page', page);
+        } else {
+            bgVideo.classList.add('is-hidden');
+        }
     }
+    // ===================================================
+    // ⬆️ نهاية الكود المضاف ⬆️
+    // ===================================================
+}
     
     // Display content with animation
     async displayContent(content) {

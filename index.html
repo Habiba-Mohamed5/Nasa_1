@@ -7,16 +7,18 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Our Planet Journey — Interactive</title>
     
-    <!-- External Dependencies -->
     <link rel="stylesheet" href="./public/libs/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- Main Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    <!-- Main Navigation -->
+
+    <video autoplay muted loop playsinline id="global-background-video" class="is-hidden">
+        <source src="./public/earth.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <nav class="main-nav">
         <div class="nav-container">
             <div class="logo">
@@ -37,7 +39,6 @@
         </div>
     </nav>
 
-    <!-- Main Content Area -->
     <main id="app-content" class="main-content">
         <div class="loading-spinner">
             <div class="spinner"></div>
@@ -45,19 +46,16 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <p>Design Rights © Your Interactive Experience — Data Sources: NASA • MODIS</p>
         </div>
     </footer>
 
-    <!-- External Scripts -->
     <script src="./public/libs/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
-    <!-- Application Scripts -->
     <script src="js/terra_static_data.js"></script>
     <script src="js/router.js"></script>
     <script src="js/shared.js"></script>
