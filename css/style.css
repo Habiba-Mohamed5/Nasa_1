@@ -1,0 +1,109 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+/* Content Animations */
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeDown 2s ease-in-out;
+}
+
+.content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  animation: fadeUp 2s ease-in-out 1s;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #00c6ff;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+  animation: popIn 2s ease-in-out 1.5s;
+}
+
+.btn:hover {
+  background: #0096c7;
+  transform: scale(1.1);
+}
+
+/* Keyframes */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Moving stars background */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: twinkle 10s linear infinite;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+
