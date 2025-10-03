@@ -970,3 +970,7 @@ async function initializeAboutPage() {
         });
     }
 }
+// Add Explorer Route
+router.addRoute('explorer', async () => {
+  return window.explorerPageTemplate();
+});

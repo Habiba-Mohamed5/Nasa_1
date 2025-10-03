@@ -1,3 +1,4 @@
+
 // Simple SPA Router for NASA Data Visualization Project
 class Router {
     constructor() {
@@ -162,6 +163,15 @@ class Router {
                         }
                     }
                 }, 500);
+            }
+
+            // Extra: Initialize explorer page if loaded
+            if (page === 'explorer') {
+                setTimeout(() => {
+                    if (window.initializeExplorerPage) {
+                        window.initializeExplorerPage();
+                    }
+                }, 300);
             }
             
         } catch (error) {
