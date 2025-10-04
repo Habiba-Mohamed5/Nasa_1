@@ -3,13 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Our Planet Journey — Interactive</title>
-    
     <link rel="stylesheet" href="./public/libs/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
 </head>
@@ -19,28 +15,19 @@
         <div class="nav-container">
             <div class="logo">
                 <div class="dot" aria-hidden></div>
-                <div>
-                    <h1>Our Planet’s Journey through Terra Data</h1>
-                    <p class="lead">Interactive Experience — Explore Earth’s changes year by year</p>
-                </div>
+                <div><h1>Our Planet’s Journey</h1><p class="lead">Interactive Experience</p></div>
             </div>
-            
             <div class="nav-links">
                 <a href="./" class="nav-link active" data-page="home">Home</a>
                 <a href="./explorer" class="nav-link" data-page="explorer">Explore</a>
-                <a href="./video" class="nav-link" data-page="video">Educational Video</a>
+                <a href="./video" class="nav-link" data-page="video">Video</a>
                 <a href="./quiz" class="nav-link" data-page="quiz">Quiz</a>
-                <a href="./about" class="nav-link" data-page="about">About the Project</a>
+                <a href="./about" class="nav-link" data-page="about">About</a>
             </div>
         </div>
     </nav>
 
-    <main id="app-content" class="main-content">
-        <div class="loading-spinner">
-            <div class="spinner"></div>
-            <p>Loading...</p>
-        </div>
-    </main>
+    <main id="app-content"></main>
 
     <footer class="main-footer">
         <div class="container">
@@ -48,15 +35,15 @@
         </div>
     </footer>
 
-  <script src="./public/libs/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="js/vegetation.js"></script> <script src="js/shared.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./public/libs/leaflet.js"></script>
+
     <script src="js/router.js"></script>
-    <script src="js/explorer.js"></script> <script src="js/shared.js"></script>
+    <script src="js/explorer.js"></script>
+    <script src="js/shared.js"></script>
     <script src="js/app.js"></script>
     
 </body>
 </html>
-    
-</body> </html>

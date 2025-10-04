@@ -3575,3 +3575,73 @@
         grid-template-columns: 1fr; /* Stack columns on smaller screens */
     }
 }
+/* ========================================= */
+/* === STYLES FOR AMAZON STORY PAGE      === */
+/* ========================================= */
+
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.story-main-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.story-main-header h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--accent2); /* Green for vegetation */
+}
+
+.story-main-header p {
+    font-size: 1.3rem;
+    color: var(--muted);
+}
+
+.story-section {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.story-section.layout-right-media {
+    flex-direction: row-reverse;
+}
+
+.media-container, .text-container {
+    flex: 1; /* Each takes up half the space */
+}
+
+.media-container img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.text-container h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.text-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.text-container .chart-wrap {
+    height: 250px;
+}
+
+@media (max-width: 900px) {
+    .story-section {
+        flex-direction: column !important; /* Stack on smaller screens */
+    }
+}

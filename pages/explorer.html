@@ -1,28 +1,60 @@
-<div class="explorer-hub">
-    <div class="hub-header">
-        <h1>Choose a Phenomenon to Explore</h1>
-        <p>Select a category to witness its journey through Terra's data from 2000 to 2023.</p>
-    </div>
+<!-- pages/explorer.html -->
+<div class="story-container">
+    <header class="story-main-header">
+        <h1>A Forest's Breath</h1>
+        <p>The story of the Amazon rainforest through two decades of NASA's Terra data.</p>
+    </header>
 
-    <div class="hub-grid">
-        <a href="./vegetation" class="hub-card" data-page="vegetation">
-            <img src="./public/icons/vegetation.jpeg" alt="Vegetation Icon">
-            <h2>Vegetation</h2>
-        </a>
+    <section class="story-section layout-left-media">
+        <div class="media-container">
+            <video src="./public/amazon/amazon_2000-2005.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="text-container">
+            <h3>2000-2005: A Stable Green Expanse</h3>
+            <p>The new millennium began with the Amazon appearing as a vast, healthy ecosystem. Data from MODIS established a baseline for the planet's largest rainforest.</p>
+            <div class="chart-wrap panel">
+                <canvas id="chart1"></canvas>
+            </div>
+        </div>
+    </section>
 
-        <a href="./ice" class="hub-card" data-page="ice">
-            <img src="./public/icons/ice.jpeg" alt="Ice Icon">
-            <h2>Ice & Snow</h2>
-        </a>
+    <section class="story-section layout-right-media">
+        <div class="text-container">
+            <h3>2006-2012: The First Scars</h3>
+            <p>This period marked the beginning of a noticeable decline due to deforestation pressures, fragmenting the forest edges.</p>
+            <div class="chart-wrap panel">
+                <canvas id="chart2"></canvas>
+            </div>
+        </div>
+        <div class="media-container">
+            <video src="./public/amazon/amazon_2006-2012.mp4" autoplay loop muted playsinline></video>
+        </div>
+    </section>
 
-        <a href="./pollution" class="hub-card" data-page="pollution">
-            <img src="./public/icons/pollution.jpeg" alt="Pollution Icon">
-            <h2>Pollution</h2>
-        </a>
+    <section class="story-section layout-left-media">
+        <div class="media-container">
+            <video src="./public/amazon/amazon_2013-2018.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="text-container">
+            <h3>2013-2018: Accelerated Decline</h3>
+            <p>The rate of vegetation loss increased significantly, coinciding with more frequent and intense large-scale wildfires.</p>
+            <div class="chart-wrap panel">
+                <canvas id="chart3"></canvas>
+            </div>
+        </div>
+    </section>
 
-        <a href="./fires" class="hub-card" data-page="fires">
-            <img src="./public/icons/fires.jpeg" alt="Fires Icon">
-            <h2>Wildfires</h2>
-        </a>
-    </div>
+    <section class="story-section layout-right-media">
+        <div class="text-container">
+            <h3>2019-2023: A System Under Threat</h3>
+            <p>Recent data shows the Amazon approaching a critical tipping point, threatening global climate patterns and biodiversity.</p>
+            <div class="chart-wrap panel">
+                <canvas id="chart4"></canvas>
+            </div>
+        </div>
+        <div class="media-container">
+            <video src="./public/amazon/amazon_2019-2023.mp4" autoplay loop muted playsinline></video>
+        </div>
+    </section>
+
 </div>
