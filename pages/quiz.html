@@ -1,5 +1,4 @@
 <div class="container">
-    <!-- Header Section -->
     <section class="quiz-header">
         <h2>🧠 Environmental Knowledge Quiz</h2>
         <p>
@@ -9,8 +8,7 @@
     </section>
 
     <div class="grid grid-main">
-        <!-- Main Quiz Section -->
-        <div class="quiz-container" style="display: flex; flex-direction: column; height: 100%; min-height: 600px;">
+        <div class="quiz-container">
             <div class="quiz-header-section">
                 <h3>Quick Quiz</h3>
                 <div class="quiz-counter">
@@ -25,21 +23,23 @@
                     </h3>
                     
                     <div class="choices" id="choices">
-                        <!-- Choices will be inserted here -->
-                    </div>
+                        </div>
                     
                     <div class="feedback" id="qFeedback" style="display: none;">
-                        <!-- Feedback will appear here -->
-                    </div>
+                        </div>
                 </div>
                 
-                <!-- Navigation buttons and progress bar -->
                 <div class="quiz-navigation">
-                    <div class="quiz-navigation-buttons">
-                        <button id="prevQ" class="btn btn-secondary" style="display: none;">Previous Question</button>
-                        <button id="nextQ" class="btn btn-secondary">Next Question</button>
-                        <button id="resetQ" class="btn btn-secondary">Restart</button>
-                        <button id="showResults" class="btn btn-primary" style="display: none;">Show Results</button>
+                    <div class="quiz-navigation-buttons" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <div>
+                            <button id="resetQ" class="btn btn-secondary">Restart</button>
+                        </div>
+                        
+                        <div style="display: flex; gap: 8px;">
+                            <button id="prevQ" class="btn btn-secondary" style="display: none;">Previous Question</button>
+                            <button id="nextQ" class="btn btn-primary">Next Question</button>
+                            <button id="showResults" class="btn btn-primary" style="display: none;">Show Results</button>
+                        </div>
                     </div>
                     
                     <div class="quiz-progress-container">
@@ -49,7 +49,6 @@
             </div>
         </div>
         
-        <!-- Side Panel: Tips & Info -->
         <aside class="quiz-side-panel">
             <h3>💡 Quiz Tips</h3>
             
@@ -79,10 +78,17 @@
                     The goal is to understand how to read and interpret environmental data.
                 </p>
             </div>
+
+            <div class="card" style="margin-top: 24px; text-align: center; padding: 24px;">
+                <h4 style="margin: 0 0 12px 0; color: var(--accent1);">📱 Full Interactive Exam</h4>
+                <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                    Scan the code with your phone camera to take the complete interactive exam on another device!
+                </p>
+                <img src="./public/qr.jpeg" alt="QR Code for Interactive Exam" style="width: 100%; max-width: 180px; border-radius: 12px; border: 2px solid var(--border); display: block; margin: 0 auto;">
+            </div>
         </aside>
     </div>
     
-    <!-- Results Section (Initially Hidden) -->
     <div id="resultsSection" class="quiz-results">
         <h3>🎉 Quiz Results</h3>
         
@@ -120,7 +126,6 @@
         </div>
     </div>
     
-    <!-- Additional Learning Resources -->
     <section style="margin-top: 40px;">
         <h3 style="margin-bottom: 20px; text-align: center;">📚 Additional Learning Resources</h3>
         
@@ -153,7 +158,6 @@
         </div>
     </section>
     
-    <!-- Call to Action -->
     <div style="background: linear-gradient(90deg, var(--accent1), var(--accent2)); padding: 24px; border-radius: 16px; margin-top: 32px; text-align: center;">
         <h3 style="margin: 0 0 12px 0; color: #001;">Are you ready for more?</h3>
         <p style="margin: 0 0 20px 0; color: #003; opacity: 0.8;">
@@ -164,4 +168,3 @@
         </button>
     </div>
 </div>
-
