@@ -3328,3 +3328,250 @@
         font-size: 1.4rem;
     }
 }
+.chart-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ... (باقي الكود الخاص بكِ كما هو بدون تغيير حتى النهاية) ... */
+
+/* Quiz Page Responsive Styles */
+@media (max-width: 480px) {
+    .feature-item {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .feature-icon {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* ================================================= */
+/* === FINAL STYLES FOR THE EXPLORER HUB (V2) ==== */
+/* ================================================= */
+
+/* --- 1. Keyframes for Floating Animation --- */
+
+
+.explorer-hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    padding: 40px 20px;
+    text-align: center;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: starsMove 100s linear infinite;
+    position: relative; /* مهم لتأثير الإضاءة */
+    overflow: hidden;   /* مهم لتأثير الإضاءة */
+}
+
+/* --- 2. Interactive Cursor Light Effect --- */
+.explorer-hub::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* الإضاءة التي تتبع الماوس */
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.15),
+        transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.explorer-hub:hover::before {
+    opacity: 1; /* إظهار الإضاءة عند دخول الماوس للمنطقة */
+}
+
+.hub-header {
+    margin-bottom: 48px;
+    animation: fadeUp 1s ease-out;
+    z-index: 2; /* للتأكد من أن النص فوق الإضاءة */
+}
+
+.hub-header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.hub-header p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 2; /* للتأكد من أن البطاقات فوق الإضاءة */
+}
+
+.hub-card {
+    text-decoration: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    padding: 32px 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    
+    
+}
+
+
+
+.hub-card:hover {
+    transform: translateY(-12px) scale(1.05); /* سيتم إلغاء تأثير الطفو عند الـ Hover */
+    
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hub-card[data-page="vegetation"]:hover { box-shadow: 0 0 50px rgba(16, 185, 129, 0.6); }
+.hub-card[data-page="ice"]:hover { box-shadow: 0 0 50px rgba(59, 130, 246, 0.6); }
+.hub-card[data-page="pollution"]:hover { box-shadow: 0 0 50px rgba(245, 158, 11, 0.6); }
+.hub-card[data-page="fires"]:hover { box-shadow: 0 0 50px rgba(239, 68, 68, 0.6); }
+
+.hub-card img {
+    height: 80px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- 4. 3D Parallax Effect --- */
+/* عند الـ Hover على البطاقة، تتحرك الأيقونة قليلاً لإعطاء عمق */
+.hub-card:hover img {
+    transform: scale(1.1) translateY(-10px);
+}
+
+.hub-card h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Responsive styles for the Hub */
+@media (max-width: 1024px) {
+    .hub-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .hub-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ========================================= */
+/* === STYLES FOR THE STORY PAGES        === */
+/* ========================================= */
+
+.story-page-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.story-header h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+/* Theme Colors for Titles */
+.vegetation-theme .story-header h1 { color: var(--accent2); }
+.ice-theme .story-header h1 { color: var(--accent1); }
+.pollution-theme .story-header h1 { color: var(--accent3); }
+.fires-theme .story-header h1 { color: #ef4444; } /* Red for fires */
+
+.story-header p {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.grid-story {
+    grid-template-columns: 2fr 1fr; /* Main content is twice as wide as the sidebar */
+    gap: 32px;
+}
+
+.story-hero-image {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.story-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.story-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.story-sidebar .panel {
+    margin-bottom: 24px;
+}
+
+.facts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.facts-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.facts-list li:last-child {
+    border-bottom: none;
+}
+
+.facts-list strong {
+    color: var(--text-primary);
+}
+
+#back-to-hub-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Responsive for story pages */
+@media (max-width: 900px) {
+    .grid-story {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}

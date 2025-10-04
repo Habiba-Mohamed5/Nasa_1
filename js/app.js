@@ -974,3 +974,29 @@ async function initializeAboutPage() {
 router.addRoute('explorer', async () => {
   return window.explorerPageTemplate();
 });
+async function loadVegetationPage() {
+    const response = await fetch('pages/vegetation.html');
+    const html = await response.text();
+    setTimeout(() => {
+        if (window.initializeVegetationPage) {
+            window.initializeVegetationPage();
+        }
+    }, 100);
+    return html;
+    // js/app.js
+
+function registerRoutes() {
+    // المسارات الأساسية
+    router.addRoute('home', () => fetch('./pages/home.html').then(res => res.text()));
+    router.addRoute('explorer', loadExplorerPage);
+    router.addRoute('video', () => fetch('./pages/video.html').then(res => res.text()));
+    router.addRoute('quiz', () => fetch('./pages/quiz.html').then(res => res.text()));
+    router.addRoute('about', () => fetch('./pages/about.html').then(res => res.text()));
+
+    // ✅✅✅ المسارات الجديدة والمهمة ✅✅✅
+    router.addRoute('vegetation', () => fetch('./pages/vegetation.html').then(res => res.text()));
+    router.addRoute('ice', () => fetch('./pages/ice.html').then(res => res.text()));
+    router.addRoute('pollution', () => fetch('./pages/pollution.html').then(res => res.text()));
+    router.addRoute('fires', () => fetch('./pages/fires.html').then(res => res.text()));
+}
+}

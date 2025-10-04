@@ -1,56 +1,74 @@
-// explorer.js
+// js/explorer.js
 
-// UI for Explorer Page
-function explorerPageTemplate() {
-  return `
-    <div class="explorer-page container">
-      <h2>🌍 NASA Data Explorer</h2>
-      <p>Select a dataset and year to view satellite imagery.</p>
-      
-      <div class="explorer-controls">
-        <label>Dataset:</label>
-        <select id="datasetSelect">
-          <option value="vegetation">Vegetation</option>
-          <option value="ice">Ice</option>
-          <option value="pollution">Pollution</option>
-        </select>
-        
-        <label>Year:</label>
-        <select id="yearSelect">
-          ${window.NasaApp.YEARS.map(y => `<option value="${y}">${y}</option>`).join('')}
-        </select>
-        
-        <button id="loadBtn" class="btn">Load Image</button>
-      </div>
-      
-      <div class="explorer-result">
-        <img id="resultImage" src="" alt="NASA Data" />
-      </div>
-    </div>
-  `;
-}
-
-// Logic for Explorer Page
 function initializeExplorerPage() {
-  const datasetSelect = document.getElementById('datasetSelect');
-  const yearSelect = document.getElementById('yearSelect');
-  const loadBtn = document.getElementById('loadBtn');
-  const resultImage = document.getElementById('resultImage');
+    console.log("🚀 Explorer Hub Initialized with SEQUENCED GSAP Animations");
 
-  if (!datasetSelect || !yearSelect || !loadBtn || !resultImage) {
-    console.error("❌ Explorer page elements not found");
-    return;
-  }
+    const hub = document.querySelector('.explorer-hub');
+    const hubCards = document.querySelectorAll('.hub-card');
 
-  loadBtn.addEventListener('click', () => {
-    const dataset = datasetSelect.value;
-    const year = parseInt(yearSelect.value);
-    const imgUrl = window.NasaApp.getNearestImage(dataset, year);
-    console.log("🛰 Loading image:", imgUrl);
-    resultImage.src = imgUrl;
-  });
+    // --- 1. تأثير الإضاءة التفاعلية ---
+    if (hub) {
+        hub.addEventListener('mousemove', (e) => {
+            const rect = hub.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            hub.style.setProperty('--mouse-x', `${x}px`);
+            hub.style.setProperty('--mouse-y', `${y}px`);
+        });
+    }
+
+    // --- 2. الانيميشن عند الضغط ---
+    hubCards.forEach(card => {
+        card.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            const destinationPage = this.dataset.page;
+            
+            hubCards.forEach(c => {
+                if(c !== this) {
+                    gsap.to(c, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" });
+                }
+            });
+
+            gsap.to(this, { 
+                scale: 1.1, 
+                opacity: 0, 
+                duration: 0.4,
+                ease: "power2.in",
+                onComplete: () => {
+                    router.navigate(destinationPage);
+                }
+            });
+        });
+    });
+
+    // --- 3. منطق الأنيميشن الجديد والمُصحح ---
+
+    // دالة خاصة بحركة الطفو، لن يتم استدعاؤها إلا بعد انتهاء حركة الدخول
+    function startFloatingAnimation() {
+        hubCards.forEach((card) => {
+            gsap.to(card, {
+                y: -15, // المسافة التي سترتفعها البطاقة
+                duration: 3,
+                repeat: -1, // تكرار لا نهائي
+                yoyo: true, // للعودة للحالة الأصلية (النزول)
+                ease: "sine.inOut",
+                delay: Math.random() * 2 // تأخير عشوائي لكل بطاقة لتبدو الحركة طبيعية
+            });
+        });
+    }
+
+    // تشغيل أنيميشن الدخول أولاً
+    gsap.from(hubCards, {
+        duration: 0.8,
+        y: 50,
+        opacity: 0,
+        stagger: 0.15,
+        delay: 0.2,
+        ease: "power2.out",
+        // عند انتهاء الأنيميشن، نستدعي دالة الطفو
+        onComplete: startFloatingAnimation 
+    });
 }
 
-// Export functions
-window.explorerPageTemplate = explorerPageTemplate;
+// جعل الدالة متاحة للـ Router
 window.initializeExplorerPage = initializeExplorerPage;

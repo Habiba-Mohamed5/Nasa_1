@@ -1,45 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Environmental Data Exploration</title>
-    </head>
-<body>
-
-    <div class="explorer-hero">
-        <h1>Explore Earth's Changing Data</h1>
-        <p>Use the controls below to visualize changes in vegetation, ice cover, and pollution over the years as captured by the Terra satellite.</p>
+<div class="explorer-hub">
+    <div class="hub-header">
+        <h1>Choose a Phenomenon to Explore</h1>
+        <p>Select a category to witness its journey through Terra's data from 2000 to 2023.</p>
     </div>
 
-    <div class="container">
-        <div class="grid grid-main">
-            
-            <div class="explorer-main-content">
-                
-                <div class="panel control-panel-main">
-                    </div>
-                
-                <div id="map-container" class="map-container panel">
-                    </div>
+    <div class="hub-grid">
+        <a href="./vegetation" class="hub-card" data-page="vegetation">
+            <img src="./public/icons/vegetation.jpeg" alt="Vegetation Icon">
+            <h2>Vegetation</h2>
+        </a>
 
-                <div class="chart-wrap panel">
-                    <canvas id="trends-chart"></canvas>
-                </div>
+        <a href="./ice" class="hub-card" data-page="ice">
+            <img src="./public/icons/ice.jpeg" alt="Ice Icon">
+            <h2>Ice & Snow</h2>
+        </a>
 
-            </div>
+        <a href="./pollution" class="hub-card" data-page="pollution">
+            <img src="./public/icons/pollution.jpeg" alt="Pollution Icon">
+            <h2>Pollution</h2>
+        </a>
 
-            <aside class="explorer-side-panel">
-                <div class="panel">
-                    <h3>Story & Insights</h3>
-                    <p id="storyText">Select a dataset and move the year slider to see the story unfold.</p>
-                </div>
-                <div class="panel">
-                    <h3>Terra Instruments</h3>
-                    </div>
-            </aside>
-
-        </div>
+        <a href="./fires" class="hub-card" data-page="fires">
+            <img src="./public/icons/fires.jpeg" alt="Fires Icon">
+            <h2>Wildfires</h2>
+        </a>
     </div>
-
-</body>
-</html>
+</div>
