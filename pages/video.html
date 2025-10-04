@@ -172,7 +172,7 @@
 </head>
 <body>
     <header class="header-section">
-        <video id="bg-video" autoplay loop muted playsinline src="../public/terra_story.mp4"></video>
+        <video id="bg-video" autoplay loop muted playsinline src="./public/terra_story.mp4"></video>
         <div class="header-content">
             <h1>Nino Robot Reports</h1>
             <p class="subtitle">Hello, I am Nino Robot! Come with me on a quick journey to discover the dramatic changes our planet has undergone.</p>
@@ -183,10 +183,10 @@
         <div class="video-layout">
             <div class="video-player-main">
                 <div class="video-player-wrapper">
-                    <video id="main-video" controls src="../public/video.mp4" type="video/mp4"></video>
+                    <video id="main-video" controls src="./public/video.mp4" type="video/mp4"></video>
                 </div>
                 <div class="audio-player">
-                    <audio controls src="../public/narrator_audio.mp3"></audio>
+                    <audio controls src="./public/narrator_audio.mp3"></audio>
                 </div>
             </div>
             <aside class="chapters-sidebar">
@@ -196,14 +196,16 @@
         </div>
 
         <section class="content-section">
-            <h2 class="section-title">The Tool: NASA's Window to the World</h2>
+            <div class="section-title">
+                <h2>The Tool: NASA's Window to the World</h2>
+            </div>
             <p>This is no longer science fiction. Thanks to NASA's efforts, the Terra and Aqua satellites embarked on an unprecedented observation journey. Today, this data is presented to us through the "Worldview" tool, the longest continuous daily global observation record of Earth ever compiled. This record isn't just images; it's a collection of living stories.</p>
         </section>
 
         <section>
             <div class="section-title"><h2>Stories From Space</h2></div>
             <div class="stories-grid">
-                 <div class="story-card"><div class="image-container"><img src="https://placehold.co/600x400/ef4444/white?text=Thomas+Fire" alt="Thomas Fire"></div><div class="story-card-content"><h3>Thomas Fire, California</h3><p>Satellite images show the terrifying smoke plume, helping crews track the fire's spread in real-time.</p></div></div>
+                <div class="story-card"><div class="image-container"><img src="https://placehold.co/600x400/ef4444/white?text=Thomas+Fire" alt="Thomas Fire"></div><div class="story-card-content"><h3>Thomas Fire, California</h3><p>Satellite images show the terrifying smoke plume, helping crews track the fire's spread in real-time.</p></div></div>
                 <div class="story-card"><div class="image-container"><img src="https://placehold.co/600x400/f97316/white?text=Fires+in+India" alt="Fires in India"></div><div class="story-card-content"><h3>Fires in India</h3><p>MODIS thermal maps reveal numerous hotspots from agricultural fires, illustrating the event's intensity.</p></div></div>
                 <div class="story-card"><div class="image-container"><img src="https://placehold.co/600x400/0ea5e9/white?text=Lower+Sesan+Dam" alt="Lower Sesan Dam"></div><div class="story-card-content"><h3>Lower Sesan Dam</h3><p>Photos reveal a dramatic landscape transformation as water submerged vast lands to create an artificial reservoir.</p></div></div>
                 <div class="story-card"><div class="image-container"><img src="https://placehold.co/600x400/4f46e5/white?text=Iceland+Volcano" alt="Iceland Volcano"></div><div class="story-card-content"><h3>Iceland Volcano</h3><p>Data shows how satellites tracked ash clouds and volcanic gases, crucial for securing global air traffic.</p></div></div>
@@ -215,7 +217,7 @@
         <section class="container" style="margin-top: 100px;">
             <div class="section-title">
                 <h2>The Terra Book</h2>
-                 <p style="font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 10px auto 0;">Flip through the pages for an in-depth look at Terra's mission and discoveries.</p>
+                <p style="font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 10px auto 0;">Flip through the pages for an in-depth look at Terra's mission and discoveries.</p>
             </div>
             <div class="flipbook-container">
                 <div class="book" id="book"></div>
@@ -268,9 +270,10 @@
                 
                 const frontPageNumber = i * 2 - 1;
                 const backPageNumber = i * 2;
-                // ✅✅✅  This path is relative to the CURRENT HTML file (video.html) ✅✅✅
-                const frontImg = `../public/book_pages/${frontPageNumber}.jpg`;
-                const backImg = `../public/book_pages/${backPageNumber}.jpg`;
+                
+                // ✅✅✅ تم تصحيح المسارات هنا أيضاً ✅✅✅
+                const frontImg = `./public/book_pages/${frontPageNumber}.jpg`;
+                const backImg = `./public/book_pages/${backPageNumber}.jpg`;
 
                 page.innerHTML = `<div class="front" style="background-image: url('${frontImg}')"></div><div class="back" style="background-image: url('${backImg}')"></div>`;
                 book.appendChild(page);
