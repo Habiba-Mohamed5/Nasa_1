@@ -173,3 +173,55 @@ class Router {
 
 // Export router instance
 window.router = new Router();
+// ✅ Hook: عند تحميل صفحة Terra Book
+if (pageName === "terra" || pageName === "book") {
+  console.log("📖 Initializing Terra Flipbook...");
+
+  // تحميل المكتبات لو مش محمّلة
+  const loadScript = (src) =>
+    new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+
+  Promise.all([
+    loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"),
+    loadScript("https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"),
+  ])
+    .then(async () => {
+      const flipbook = document.getElementById("flipbook");
+      if (!flipbook) return console.error("❌ Flipbook container not found!");
+
+      const url = "./public/Terra_Book.pdf"; // ضيفي اسم ملفك الصحيح
+      const pdf = await pdfjsLib.getDocument(url).promise;
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        await page.render({ canvasContext: context, viewport }).promise;
+
+        const div = document.createElement("div");
+        div.classList.add("page");
+        div.appendChild(canvas);
+        flipbook.appendChild(div);
+      }
+
+      $("#flipbook").turn({
+        width: 900,
+        height: 600,
+        autoCenter: true,
+        duration: 1200,
+        gradients: true,
+      });
+
+      console.log("✅ Terra Flipbook initialized successfully!");
+    })
+    .catch((err) => console.error("❌ Error loading flipbook libs:", err));
+}

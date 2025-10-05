@@ -1,277 +1,218 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Amazon Story - NASA Terra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amazon Story - Videos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-    <style>
-        /* ========================================= */
-        /* === STYLES FOR THE AMAZON STORY PAGE  === */
-        /* ========================================= */
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: rgba(22, 32, 57, 0.5);
+      --accent2: #10b981;
+      --muted: #94a3b8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --border: rgba(255, 255, 255, 0.1);
+    }
 
-        /* --- 1. General Styles --- */
-        :root {
-            --bg: #0f172a;
-            --card-bg: rgba(22, 32, 57, 0.5);
-            --accent1: #3b82f6;
-            --accent2: #10b981;
-            --muted: #94a3b8;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --border: rgba(255, 255, 255, 0.1);
-        }
+    body {
+      background-color: var(--bg);
+      font-family: 'Cairo', sans-serif;
+      color: var(--text-primary);
+      margin: 0;
+      overflow-x: hidden;
+    }
 
-        body {
-            background-color: var(--bg);
-            font-family: 'Cairo', sans-serif;
-            color: var(--text-primary);
-            margin: 0;
-            overflow-x: hidden;
-        }
+    .story-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-        /* --- 2. Story Container and Header --- */
-        .story-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    .story-main-header {
+      text-align: center;
+      margin-bottom: 100px;
+    }
 
-        .story-main-header {
-            text-align: center;
-            margin-bottom: 100px;
-        }
+    .story-main-header h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--accent2);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
 
-        .story-main-header h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            color: var(--accent2);
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
+    .story-main-header p {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-        .story-main-header p {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            color: var(--muted);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 120px;
+    }
 
-        /* --- 3. Story Section Layout --- */
-        .story-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-            margin-bottom: 120px;
-        }
+    .story-section.layout-right-media .media-container {
+      grid-column: 2;
+      grid-row: 1;
+    }
 
-        .story-section.layout-right-media .media-container {
-            grid-column: 2;
-            grid-row: 1;
-        }
-        
-        .story-section.layout-right-media .text-container {
-            grid-column: 1;
-            grid-row: 1;
-        }
+    .story-section.layout-right-media .text-container {
+      grid-column: 1;
+      grid-row: 1;
+    }
 
-        .media-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        }
+    .media-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
 
-        .media-container:hover video {
-            transform: scale(1.03);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-        }
-        
-        .text-container h3 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
+    .media-container:hover video {
+      transform: scale(1.03);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    }
 
-        .text-container p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
+    .text-container h3 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
 
-        .panel {
-            background: var(--card-bg);
-            padding: 18px;
-            border-radius: 14px;
-            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.5);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-        }
+    .text-container p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
 
-        .text-container .chart-wrap {
-            height: 250px;
-        }
+    @media (max-width: 900px) {
+      .story-section {
+        grid-template-columns: 1fr;
+      }
 
-        /* --- 4. Responsive Design --- */
-        @media (max-width: 900px) {
-            .story-section {
-                grid-template-columns: 1fr;
-            }
-            .story-section.layout-right-media .media-container,
-            .story-section.layout-right-media .text-container {
-                grid-column: 1;
-            }
-        }
-    </style>
+      .story-section.layout-right-media .media-container,
+      .story-section.layout-right-media .text-container {
+        grid-column: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="story-container">
+    <header class="story-main-header">
+      <h1>Amazon Videos Story</h1>
+      <p>A visual journey through 10 video segments showing Amazon changes over time.</p>
+    </header>
 
-    <div class="story-container">
-        <header class="story-main-header">
-            <h1>A Forest's Breath</h1>
-            <p>The story of the Amazon rainforest through two decades of NASA's Terra data.</p>
-        </header>
+    <!-- Video Sections -->
+    <section class="story-section layout-left-media">
+      <div class="media-container">
+        <video src="./public/amazon/vid1.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="text-container">
+        <h3>Video 1</h3>
+        <p>Initial overview of the Amazon rainforest captured by Terra satellite.</p>
+      </div>
+    </section>
 
-        <section class="story-section layout-left-media">
-            <div class="media-container">
-                <video src="./public/amazon/amazon_2000-2005.mp4" autoplay loop muted playsinline></video>
-            </div>
-            <div class="text-container">
-                <h3>2000-2005: A Stable Green Expanse</h3>
-                <p>The new millennium began with the Amazon appearing as a vast, healthy ecosystem. Data from MODIS established a baseline for the planet's largest rainforest.</p>
-                <div class="chart-wrap panel">
-                    <canvas id="chart1"></canvas>
-                </div>
-            </div>
-        </section>
+    <section class="story-section layout-right-media">
+      <div class="text-container">
+        <h3>Video 2</h3>
+        <p>Observations of early deforestation patterns and canopy changes.</p>
+      </div>
+      <div class="media-container">
+        <video src="./public/amazon/vid2.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </section>
 
-        <section class="story-section layout-right-media">
-            <div class="text-container">
-                <h3>2006-2012: The First Scars</h3>
-                <p>This period marked the beginning of a noticeable decline due to deforestation pressures, fragmenting the forest edges.</p>
-                <div class="chart-wrap panel">
-                    <canvas id="chart2"></canvas>
-                </div>
-            </div>
-            <div class="media-container">
-                <video src="./public/amazon/amazon_2006-2012.mp4" autoplay loop muted playsinline></video>
-            </div>
-        </section>
+    <section class="story-section layout-left-media">
+      <div class="media-container">
+        <video src="./public/amazon/vid3.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="text-container">
+        <h3>Video 3</h3>
+        <p>Monitoring water vapor and cloud cover transitions over the basin.</p>
+      </div>
+    </section>
 
-        <section class="story-section layout-left-media">
-            <div class="media-container">
-                <video src="./public/amazon/amazon_2013-2018.mp4" autoplay loop muted playsinline></video>
-            </div>
-            <div class="text-container">
-                <h3>2013-2018: Accelerated Decline</h3>
-                <p>The rate of vegetation loss increased significantly, coinciding with more frequent and intense large-scale wildfires.</p>
-                <div class="chart-wrap panel">
-                    <canvas id="chart3"></canvas>
-                </div>
-            </div>
-        </section>
+    <section class="story-section layout-right-media">
+      <div class="text-container">
+        <h3>Video 4</h3>
+        <p>Tracking seasonal variations in vegetation and soil reflectance.</p>
+      </div>
+      <div class="media-container">
+        <video src="./public/amazon/vid4.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </section>
 
-        <section class="story-section layout-right-media">
-            <div class="text-container">
-                <h3>2019-2023: A System Under Threat</h3>
-                <p>Recent data shows the Amazon approaching a critical tipping point, threatening global climate patterns and biodiversity.</p>
-                <div class="chart-wrap panel">
-                    <canvas id="chart4"></canvas>
-                </div>
-            </div>
-            <div class="media-container">
-                <video src="./public/amazon/amazon_2019-2023.mp4" autoplay loop muted playsinline></video>
-            </div>
-        </section>
-    </div>
+    <section class="story-section layout-left-media">
+      <div class="media-container">
+        <video src="./public/amazon/vid5.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="text-container">
+        <h3>Video 5</h3>
+        <p>Heat signatures and temperature anomalies detected over the years.</p>
+      </div>
+    </section>
 
-    <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <section class="story-section layout-right-media">
+      <div class="text-container">
+        <h3>Video 6</h3>
+        <p>Urban expansion and land-use impacts seen from space imagery.</p>
+      </div>
+      <div class="media-container">
+        <video src="./public/amazon/vid6.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </section>
 
-    <!-- JavaScript Logic -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            const ndviData = [
-                {"year":2000, "ndvi":0.72}, {"year":2001, "ndvi":0.73}, {"year":2002, "ndvi":0.74},
-                {"year":2003, "ndvi":0.74}, {"year":2004, "ndvi":0.75}, {"year":2005, "ndvi":0.75},
-                {"year":2006, "ndvi":0.74}, {"year":2007, "ndvi":0.74}, {"year":2008, "ndvi":0.73},
-                {"year":2009, "ndvi":0.73}, {"year":2010, "ndvi":0.72}, {"year":2011, "ndvi":0.72},
-                {"year":2012, "ndvi":0.71}, {"year":2013, "ndvi":0.71}, {"year":2014, "ndvi":0.70},
-                {"year":2015, "ndvi":0.70}, {"year":2016, "ndvi":0.69}, {"year":2017, "ndvi":0.69},
-                {"year":2018, "ndvi":0.68}, {"year":2019, "ndvi":0.68}, {"year":2020, "ndvi":0.67},
-                {"year":2021, "ndvi":0.67}, {"year":2022, "ndvi":0.66}, {"year":2023, "ndvi":0.66}
-            ];
+    <section class="story-section layout-left-media">
+      <div class="media-container">
+        <video src="./public/amazon/vid7.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="text-container">
+        <h3>Video 7</h3>
+        <p>Satellite detection of wildfire intensity and spread zones.</p>
+      </div>
+    </section>
 
-            function createAmazonChart(canvasId, data) {
-                const canvas = document.getElementById(canvasId);
-                if (!canvas) return;
-                const ctx = canvas.getContext('2d');
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: data.map(d => d.year),
-                        datasets: [{
-                            data: data.map(d => d.ndvi),
-                            borderColor: 'limegreen', tension: 0.4, fill: true,
-                            backgroundColor: 'rgba(50, 205, 50, 0.2)'
-                        }]
-                    },
-                    options: {
-                        responsive: true, maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: { y: { display: false }, x: { display: false } }
-                    }
-                });
-            }
+   
 
-            // --- MAIN LOGIC ---
-            try {
-                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-                    return console.error("GSAP or ScrollTrigger is not loaded.");
-                }
-                gsap.registerPlugin(ScrollTrigger);
+    
 
-                // Create charts
-                createAmazonChart('chart1', ndviData.slice(0, 6));
-                createAmazonChart('chart2', ndviData.slice(6, 13));
-                createAmazonChart('chart3', ndviData.slice(13, 19));
-                createAmazonChart('chart4', ndviData.slice(19));
+    
+  </div>
 
-                // Animate header
-                gsap.from('.story-main-header', { opacity: 0, y: -50, duration: 1, ease: 'power2.out' });
-                
-                // Animate each section as it scrolls into view
-                document.querySelectorAll('.story-section').forEach(section => {
-                    const media = section.querySelector('.media-container');
-                    const text = section.querySelector('.text-container');
-                    
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: section,
-                            start: "top 80%",
-                            toggleActions: "play none none none"
-                        }
-                    });
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-                    tl.from(media, { opacity: 0, x: section.classList.contains('layout-right-media') ? 100 : -100, duration: 1, ease: 'power3.out' })
-                      .from(text, { opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' }, "-=0.7");
-                });
-                
-                console.log("✅ Standalone page initialized successfully.");
-            } catch(e) {
-                console.error("❌ Error in standalone page:", e);
-            }
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.story-main-header', { opacity: 0, y: -50, duration: 1, ease: 'power2.out' });
+
+      document.querySelectorAll('.story-section').forEach(section => {
+        const media = section.querySelector('.media-container');
+        const text = section.querySelector('.text-container');
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: section, start: "top 80%", toggleActions: "play none none none" }
         });
-    </script>
+        tl.from(media, { opacity: 0, x: section.classList.contains('layout-right-media') ? 100 : -100, duration: 1, ease: 'power3.out' })
+          .from(text, { opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' }, "-=0.7");
+      });
+    });
+  </script>
 </body>
 </html>

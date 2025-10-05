@@ -136,34 +136,23 @@
         .story-card-content h3 { font-size: 1.5rem; margin: 0 0 10px 0; color: var(--accent-cyan); }
         .story-card-content p { font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); margin: 0; }
         
-        /* --- Flipbook Section --- */
-        .flipbook-container { display: flex; flex-direction: column; align-items: center; }
-        .book { width: 90vw; max-width: 900px; height: 60vw; max-height: 600px; position: relative; perspective: 1800px; }
-        .page {
-            width: 50%; height: 100%; position: absolute; top: 0; right: 0;
-            transform-origin: left; transform-style: preserve-3d;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            border-radius: 0 10px 10px 0;
+        /* --- PDF Container Style --- */
+        .pdf-container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            width: 90vw; 
+            max-width: 900px; 
+            height: 700px; /* تم تعديل الارتفاع ليكون مناسبًا */
+            margin: 0 auto;
         }
-        .page > div {
-            position: absolute; width: 100%; height: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            padding: 30px; box-sizing: border-box; backface-visibility: hidden;
-            background-color: #f3f0e9; color: #333;
-            border: 1px solid #ccc;
-            background-size: cover;
-            background-position: center;
+        .pdf-container iframe {
+            width: 100%; 
+            height: 100%; 
+            border: 2px solid var(--accent-cyan); 
+            border-radius: 12px; 
+            box-shadow: 0 0 25px var(--accent-glow);
         }
-        .page .back { transform: rotateY(180deg); border-radius: 10px 0 0 10px; }
-        .page.flipped { transform: rotateY(-180deg); }
-        .book-controls { margin-top: 30px; }
-        .book-btn {
-            background: var(--accent-blue); color: white; border: none; padding: 12px 24px;
-            border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem;
-            font-weight: 600; cursor: pointer; margin: 0 10px; transition: all 0.2s ease;
-        }
-        .book-btn:hover { background: var(--accent-cyan); box-shadow: 0 0 15px var(--accent-glow); }
-        .book-btn:disabled { background: #555; cursor: not-allowed; }
 
         @media (max-width: 1024px) {
             .video-layout { grid-template-columns: 1fr; }
@@ -217,16 +206,17 @@
         <section class="container" style="margin-top: 100px;">
             <div class="section-title">
                 <h2>The Terra Book</h2>
-                <p style="font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 10px auto 0;">Flip through the pages for an in-depth look at Terra's mission and discoveries.</p>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 10px auto 0;">تصفح التقرير الكامل لمهمة تيرا واكتشافاتها.</p>
             </div>
-            <div class="flipbook-container">
-                <div class="book" id="book"></div>
-                <div class="book-controls">
-                    <button id="prev-btn" class="book-btn">Previous</button>
-                    <button id="next-btn" class="book-btn">Next</button>
-                </div>
+            
+            <div class="pdf-container">
+                <iframe 
+                    src="./public/Terra_Book.pdf" 
+                    title="The Terra Book PDF Viewer">
+                    <p>لا يمكن لمتصفحك عرض ملفات PDF. يمكنك تحميل الملف بدلاً من ذلك: <a href="./public/Terra_Book.pdf">تحميل Terra Book</a></p>
+                </iframe>
             </div>
-        </section>
+            </section>
     </main>
 
     <script>
@@ -235,6 +225,7 @@
             const chapters = [ { id: 1, title: "Introduction", startTime: 0 }, { id: 2, title: "The MODIS Instrument", startTime: 10 }];
             const video = document.getElementById('main-video');
             const chaptersList = document.getElementById('chapters-list');
+            
             chapters.forEach(chapter => {
                 const item = document.createElement('div');
                 item.className = 'chapter-item';
@@ -242,55 +233,28 @@
                 item.innerHTML = `<span>${String(chapter.id).padStart(2, '0')}</span>${chapter.title}`;
                 chaptersList.appendChild(item);
             });
+            
             const chapterItems = document.querySelectorAll('.chapter-item');
             chaptersList.addEventListener('click', (e) => {
                 const chapterItem = e.target.closest('.chapter-item');
-                if (chapterItem) { video.currentTime = parseFloat(chapterItem.dataset.startTime); video.play(); }
+                if (chapterItem) { 
+                    video.currentTime = parseFloat(chapterItem.dataset.startTime); 
+                    video.play(); 
+                }
             });
 
             // --- Animations ---
             if (typeof gsap === 'undefined') return;
             gsap.registerPlugin(ScrollTrigger);
+            
             gsap.from('.header-content > *', { opacity: 0, y: -30, duration: 1, ease: 'power2.out', stagger: 0.3, delay: 0.5 });
-            gsap.utils.toArray('.video-layout, .content-section, .stories-grid, .flipbook-container, .section-title').forEach(section => {
+            
+            gsap.utils.toArray('.video-layout, .content-section, .stories-grid, .pdf-container, .section-title').forEach(section => {
                 gsap.from(section, { scrollTrigger: { trigger: section, start: 'top 85%' }, opacity: 0, y: 50, duration: 1.2, ease: 'power3.out' });
             });
 
-            // --- Flipbook Logic ---
-            const book = document.getElementById('book');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const numPages = 18; // 36 sides / 2
-            let currentPage = 0;
-
-            for (let i = 1; i <= numPages; i++) {
-                const page = document.createElement('div');
-                page.className = 'page';
-                page.style.zIndex = numPages - i;
-                
-                const frontPageNumber = i * 2 - 1;
-                const backPageNumber = i * 2;
-                
-                // ✅✅✅ تم تصحيح المسارات هنا أيضاً ✅✅✅
-                const frontImg = `./public/book_pages/${frontPageNumber}.jpg`;
-                const backImg = `./public/book_pages/${backPageNumber}.jpg`;
-
-                page.innerHTML = `<div class="front" style="background-image: url('${frontImg}')"></div><div class="back" style="background-image: url('${backImg}')"></div>`;
-                book.appendChild(page);
-            }
-
-            const pages = document.querySelectorAll('.page');
-            function updateButtons() {
-                prevBtn.disabled = currentPage === 0;
-                nextBtn.disabled = currentPage === numPages;
-            }
-            nextBtn.addEventListener('click', () => {
-                if (currentPage < numPages) { pages[currentPage].classList.add('flipped'); currentPage++; updateButtons(); }
-            });
-            prevBtn.addEventListener('click', () => {
-                if (currentPage > 0) { currentPage--; pages[currentPage].classList.remove('flipped'); updateButtons(); }
-            });
-            updateButtons();
+            // ❌ تم حذف منطق Flipbook القديم بالكامل ❌
+            
         });
     </script>
 </body>
